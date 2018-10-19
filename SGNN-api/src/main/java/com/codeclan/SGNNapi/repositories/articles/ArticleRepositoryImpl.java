@@ -1,6 +1,7 @@
 package com.codeclan.SGNNapi.repositories.articles;
 
 import com.codeclan.SGNNapi.models.Article;
+import com.codeclan.SGNNapi.models.Region;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -84,4 +85,27 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
 
         return articles;
     }
+
+    @Override
+    @Transactional
+    public List<Article> findArticlesByRegion(Region region) {
+
+        List<Article> articles = null;
+        Session session = entityManager.unwrap(Session.class);
+
+        try {
+            Criteria criteria = session.createCriteria(Article.class);
+            criteria.add(Restrictions.eq("region", region));
+            articles = criteria.list();
+        }
+        catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+
+        return articles;
+    }
+
 }
