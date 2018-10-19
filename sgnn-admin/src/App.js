@@ -15,8 +15,15 @@ class App extends Component {
           <NavBar />
           <Route exact path = "/" component = { HomeContainer } />
           <Route exact path = "/articles/" component = { ArticleContainer } />
-          <Route exact path = "/journalists" component = { JournalistContainer } />
+          <Route exact path="/journalists" render={() => {
+            const url = "/journalists";
+            return <JournalistContainer url={url}/>
+          }} />
           <Route exact path = "/journalists/new" component = { JournalistFormContainer } />
+          <Route exact path="/journalists/:id" render={(props) => {
+            const url = "/journalists/" + props.match.params.id; //ends up being something like /journalists/1?projection=embedShip
+            return <JournalistContainer url={url}/>
+            }} />
           <Footer />
         </React.Fragment>
       </Router>

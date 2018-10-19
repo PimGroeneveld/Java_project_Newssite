@@ -2,9 +2,9 @@ import React from 'react';
 import JournalistDetail from './JournalistDetail';
 
 const JournalistList = props => {
-  const journalistElements = props.journalists.map((journalist) => {
+  const journalistElements = props.journalists.map((journalist, index) => {
     return(
-      <li key = { journalist.id } >
+      <li key = { index } className="journalist-list">
         <JournalistDetail journalist = { journalist } />
       </li>
     )
