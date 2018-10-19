@@ -13,4 +13,5 @@ public interface ArticleRepositoryCustom {
     List<Article> findArticlesByCategory(Long categoryId);
     List<Article> findArticlesByJournalist(Long journalistId);
     List<Article> findArticlesByRegion(Region region);
+    List<Article> findArticlesByHeadline(String searchText);
 }

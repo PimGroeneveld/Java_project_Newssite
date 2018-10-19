@@ -108,4 +108,28 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
         return articles;
     }
 
+    @Override
+    @Transactional
+    public List<Article> findArticlesByHeadline(String searchText) {
+
+        String searchCriteria = "%"+searchText+"%";
+
+        List<Article> articles = null;
+        Session session = entityManager.unwrap(Session.class);
+
+        try {
+            Criteria criteria = session.createCriteria(Article.class);
+            criteria.add(Restrictions.ilike("headline", searchCriteria));
+            articles = criteria.list();
+        }
+        catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+
+        return articles;
+    }
+
 }

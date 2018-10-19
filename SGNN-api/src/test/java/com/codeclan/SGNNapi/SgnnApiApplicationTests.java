@@ -58,4 +58,10 @@ public class SgnnApiApplicationTests {
 		List<Article> articles = articleRepository.findArticlesByRegion(Region.SCOTLAND);
 		assertEquals(2, articles.size());
 	}
+
+	@Test
+	public void canFindArticlesByPartialHeadline() {
+		List<Article> articles = articleRepository.findArticlesByHeadline("coW");
+		assertEquals(1, articles.size());
+	}
 }
