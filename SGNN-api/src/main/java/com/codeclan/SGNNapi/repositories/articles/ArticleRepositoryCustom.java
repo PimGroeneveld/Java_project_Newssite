@@ -10,4 +10,5 @@ public interface ArticleRepositoryCustom {
 
     List<Article> sortArticlesByDate();
     List<Article> findArticlesByCategory(Long categoryId);
+    List<Article> findArticlesByJournalist(Long journalistId);
 }

@@ -61,4 +61,27 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
 
         return articles;
     }
+
+    @Override
+    @Transactional
+    public List<Article> findArticlesByJournalist(Long journalistId) {
+
+        List<Article> articles = null;
+        Session session = entityManager.unwrap(Session.class);
+
+        try {
+            Criteria criteria = session.createCriteria(Article.class);
+            criteria.createAlias("journalists", "journalist");
+            criteria.add(Restrictions.eq("journalist.id", journalistId));
+            articles = criteria.list();
+        }
+        catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+
+        return articles;
+    }
 }

@@ -46,4 +46,10 @@ public class SgnnApiApplicationTests {
 		List<Article> articles = articleRepository.findArticlesByCategory(2L);
 		assertEquals(2, articles.size());
 	}
+
+	@Test
+	public void canFindArticlesByJournalist() {
+		List<Article> articles = articleRepository.findArticlesByJournalist(2L);
+		assertEquals(2, articles.size());
+	}
 }
