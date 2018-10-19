@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MainArticle from '../components/MainArticle';
+import MainArticle from '../components/articles/MainArticle';
 
 class NewsFeedContainer extends Component {
   constructor(props) {
