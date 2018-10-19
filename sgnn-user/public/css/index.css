@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: #ff0000; 
+  height: 100px;
+  margin-bottom: 30px;
+}
+
+header ul {
+  padding: 75px 0 0 0;
+  margin: 0;
+}
+
+header ul li {
+  display: inline;
+  color: #ffffff;
+}
+
+header ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.news-feed-container {
+  padding: 30px;
+}
+
+.main-article {
+  display: flex;
+  padding-bottom: 20px; 
+  justify-content: space-between;
+}
+.main-pic {
+  width: 70%;
+}
+.main-text {
+  padding: 0 30px;
+  width: 30%;
+}
+
+.main-text h1 {
+  margin-top: 0;
+}
