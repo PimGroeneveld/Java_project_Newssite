@@ -1,9 +1,21 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Crimson Text', serif;
+}
+
+p {
+  font-size: 17px;
+  line-height: 26px;
+}
+
+h1 {
+  font-size: 40px;
 }
 
 header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
   background-color: #cc0000; 
   height: 70px;
   margin-bottom: 30px;
@@ -26,8 +38,10 @@ header ul li a {
 }
 
 .navbar-top {
+  font-family: 'Roboto', sans-serif;
   padding: 2px;
-  height: 25px;
+  height: 27px;
+  background-color: #eeeeee;
 }
 
 .search-box {
@@ -51,4 +65,19 @@ header ul li a {
 
 .main-text h1 {
   margin-top: 0px; 
+}
+
+.full-article {
+  width: 60%;
+  margin: 0 auto;
+  padding: 30px 0px;
+}
+
+.full-article img {
+  width: 100%;
+  padding: 0 0 30px 0;
+}
+
+.date {
+  color: #cccccc;
 }
