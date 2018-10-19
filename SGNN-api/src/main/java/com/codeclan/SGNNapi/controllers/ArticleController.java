@@ -34,8 +34,13 @@ public class ArticleController {
     }
 
     @GetMapping(value = "/region/{regionName}")
-    public List<Article> findArticlesByRegion(@PathVariable String regionName){
+    public List<Article> filterArticlesByRegion(@PathVariable String regionName){
         Region region = Region.valueOf(regionName.toUpperCase());
         return articleRepository.findArticlesByRegion(region);
+    }
+
+    @GetMapping(value = "/search/{searchText}")
+    public List<Article> filterArticlesBySearchHeadline(@PathVariable String searchText){
+        return articleRepository.findArticlesByHeadline(searchText);
     }
 }
