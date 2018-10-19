@@ -106,6 +106,7 @@ public class DataLoader implements ApplicationRunner {
         articleRepository.save(article2);
 
         article2.addCategory(generalCategory);
+        article2.addCategory(healthCategory);
         article2.addJournalist(journalist2);
         articleRepository.save(article2);
 

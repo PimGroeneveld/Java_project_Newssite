@@ -37,9 +37,13 @@ public class SgnnApiApplicationTests {
 
 	@Test
 	public void canOrderArticlesByDate() {
-
 		List<Article> sortedArticles = articleRepository.sortArticlesByDate();
 		assertEquals("Mad cow disease tests continue after Aberdeenshire discovery", sortedArticles.get(0).getHeadline());
+	}
 
+	@Test
+	public void canFindArticlesByCategory() {
+		List<Article> articles = articleRepository.findArticlesByCategory(2L);
+		assertEquals(2, articles.size());
 	}
 }
