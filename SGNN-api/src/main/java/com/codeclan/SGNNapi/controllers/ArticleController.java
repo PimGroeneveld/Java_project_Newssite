@@ -17,6 +17,11 @@ public class ArticleController {
     @Autowired
     ArticleRepository articleRepository;
 
+    @GetMapping
+    public List<Article> getSortedArticles(){
+        return articleRepository.sortArticlesByDate();
+    }
+
     @GetMapping(value = "/category/{categoryId}")
     public List<Article> findArticlesByCategory(@PathVariable Long categoryId){
         return articleRepository.findArticlesByCategory(categoryId);
