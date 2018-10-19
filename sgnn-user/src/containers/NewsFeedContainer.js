@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MainArticle from '../components/articles/MainArticle';
+import ArticleList from '../containers/ArticleList';
 
 class NewsFeedContainer extends Component {
   constructor(props) {
@@ -20,8 +21,9 @@ class NewsFeedContainer extends Component {
   render() {
     return(
       <div className = "news-feed-container">
-        <MainArticle article = { this.state.articles[0] }/>      
+        <MainArticle article = { this.state.articles[0] }/>     
         <hr/>
+        <ArticleList articles = { this.state.articles }/> 
       </div>
     )
   }

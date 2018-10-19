@@ -34,7 +34,7 @@ class ArticleContainer extends Component {
       <div className = "full-article">
         <h1>{ this.state.article.headline }</h1>
         <p className = "date">{ this.prettyDate() }</p>
-        <img src = {process.env.PUBLIC_URL + this.state.article.imageUrl } alt = "article" ></img>
+        <img src = { process.env.PUBLIC_URL + this.state.article.imageUrl } alt = "article" ></img>
         <p>{ this.state.article.fullStory }</p>
       </div>
     )

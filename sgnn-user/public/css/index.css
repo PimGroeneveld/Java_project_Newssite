@@ -55,7 +55,7 @@ header ul li a {
 
 .main-article {
   display: flex;
-  padding-bottom: 20px; 
+  padding: 0 30px 20px 30px; 
   justify-content: space-around;
 }
 
@@ -80,4 +80,25 @@ header ul li a {
 
 .date {
   color: #cccccc;
+}
+
+.article-preview-list {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.article-preview {
+  padding: 5px;
+  width: 20%;
+}
+
+.article-preview img {
+  width: 100%;
+}
+
+.article-preview a {
+  text-decoration: none;
+  color: #000000;
 }
