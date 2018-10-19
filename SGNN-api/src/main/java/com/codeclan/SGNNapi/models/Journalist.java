@@ -1,15 +1,34 @@
 package com.codeclan.SGNNapi.models;
 
-import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "journalists")
 public class Journalist {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String name;
 
+    @JsonIgnoreProperties("journalists")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "journalists_articles",
+            joinColumns = {
+                    @JoinColumn(name = "journalist_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "article_id", nullable = false, updatable = false)
+            })
     private List<Article> articles;
 
     public Journalist() {
