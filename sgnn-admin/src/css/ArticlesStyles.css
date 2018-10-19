@@ -1,6 +1,12 @@
 #articles-table {
   border: 1px solid black;
 }
+
+td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
 .article-number-element {
   padding-left: 10px;
   width: 30px;

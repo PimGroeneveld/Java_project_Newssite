@@ -6,7 +6,7 @@ const ArticleDetail = (props) => {
 
   return(
     <tr>
-      <td className="article-number-element">{props.index}</td>
+      <td className="article-number-element">{props.index+1}</td>
       <td className="article-headline-element">{props.article.headline}</td>
       <td className="article-date-element">{props.article.publishDate}</td>
       <td className="article-region-element">{props.article.region}</td>

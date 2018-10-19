@@ -5,7 +5,7 @@ const ArticleList = (props) => {
 
   const articlesOptions = props.articles.map((article, index) => {
     return (
-      <ArticleDetail article={article} index={index}/>
+      <ArticleDetail key={index} article={article} index={index}/>
     )
   });
 
@@ -23,7 +23,9 @@ const ArticleList = (props) => {
             <td className="article-region-element">Region</td>
           </tr>
         </thead>
-        {articlesOptions}
+        <tbody>
+          {articlesOptions}
+        </tbody>
       </table>
     </div>
   )
