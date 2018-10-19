@@ -5,6 +5,6 @@ public enum Region {
     SCOTLAND,
     WALES,
     ENGLAND,
-    IRELAND
+    NORTHERN_IIRELAND
 
 }

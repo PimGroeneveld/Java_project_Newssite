@@ -7,5 +7,6 @@ public enum Category {
     HEALTH,
     TECH,
     EDUCATION,
+    ECONOMY,
     GENERAL
 }
