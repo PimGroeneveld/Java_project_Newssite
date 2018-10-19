@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import ArticleContainer from './containers/articles/ArticleContainer';
@@ -13,10 +13,15 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
-          <Route exact path = "/" component = { HomeContainer } />
-          <Route exact path = "/articles/" component = { ArticleContainer } />
-          <Route exact path = "/journalists" component = { JournalistContainer } />
-          <Route exact path = "/journalists/new" component = { JournalistFormContainer } />
+          <Switch>
+            <Route exact path = "/" component = { HomeContainer } />
+            <Route exact path = "/articles" render = {() => {
+              const url = "/articles";
+              return <ArticleContainer url={url}/>
+            }} />
+            <Route exact path = "/journalists" component = { JournalistContainer } />
+            <Route exact path = "/journalists/new" component = { JournalistFormContainer } />
+          </Switch>
           <Footer />
         </React.Fragment>
       </Router>
