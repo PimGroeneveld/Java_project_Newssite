@@ -21,4 +21,9 @@ public class ArticleController {
     public List<Article> findArticlesByCategory(@PathVariable Long categoryId){
         return articleRepository.findArticlesByCategory(categoryId);
     }
+
+    @GetMapping(value = "/journalist/{journalistId}")
+    public List<Article> findArticlesByJournalist(@PathVariable Long journalistId){
+        return articleRepository.findArticlesByJournalist(journalistId);
+    }
 }
