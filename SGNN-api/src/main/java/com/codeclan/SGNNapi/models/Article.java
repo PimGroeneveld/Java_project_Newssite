@@ -1,20 +1,63 @@
 package com.codeclan.SGNNapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "articles")
 public class Article {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String headline;
+
+    @Column
     private String summary;
+
+    @Column(name = "full_story")
     private String fullStory;
+
+    @Column(name = "publish_date")
     private LocalDateTime publishDate;
+
+    @Column(name = "image_url")
     private String imageUrl;
+
+    @Column
     private Region region;
 
+    @JsonIgnoreProperties("articles")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "journalists_articles",
+            joinColumns = {
+                    @JoinColumn(name = "article_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "journalist_id", nullable = false, updatable = false)
+            })
     private List<Journalist> journalists;
+
+    @JsonIgnoreProperties("articles")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "categories_articles",
+            joinColumns = {
+                    @JoinColumn(name = "article_id", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "category_id", nullable = false, updatable = false)
+            })
     private List<Category> categories;
 
     public Article() {
