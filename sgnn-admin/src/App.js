@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
+
 import ArticleContainer from './containers/articles/ArticleContainer';
+import ArticleDetail from './components/articles/ArticleDetail.js';
+
 import HomeContainer from './containers/HomeContainer';
 import JournalistContainer from './containers/journalists/JournalistContainer';
 import JournalistFormContainer from './containers/journalists/JournalistFormContainer';
@@ -19,6 +22,12 @@ class App extends Component {
               const url = "/articles";
               return <ArticleContainer url={url}/>
             }} />
+            <Route exact path="/articles/:id" render={(props) => {
+              const url = "/articles"+props.match.params.id;
+              return <ArticleDetail url={url}/>
+            }
+
+            }/>
             <Route exact path = "/journalists" component = { JournalistContainer } />
             <Route exact path = "/journalists/new" component = { JournalistFormContainer } />
           </Switch>

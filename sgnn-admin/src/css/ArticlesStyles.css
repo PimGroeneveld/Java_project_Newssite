@@ -2,6 +2,11 @@
   border: 1px solid black;
 }
 
+thead {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 td {
   border-bottom: 1px solid black;
   border-right: 1px solid black;

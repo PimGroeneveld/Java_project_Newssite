@@ -1,11 +1,12 @@
 import React from 'react';
-import ArticleDetail from './ArticleDetail.js';
+import Article from './Article.js';
 
 const ArticleList = (props) => {
 
   const articlesOptions = props.articles.map((article, index) => {
+    const articleUrl = "/articles/"+article.id;
     return (
-      <ArticleDetail key={index} article={article} index={index}/>
+        <Article key={index} article={article} index={index} onRowClick={props.onRowClick}/>
     )
   });
 

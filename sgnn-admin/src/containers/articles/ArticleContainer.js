@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import ArticleList from '../../components/articles/ArticleList.js';
 import '../../css/ArticlesStyles.css';
 
@@ -7,9 +8,13 @@ class ArticleContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      articles: []
+      articles: [],
+      redirect: false,
+      articleId: 0
     }
     this.url = props.url;
+    this.handleRowClick = this.handleRowClick.bind(this);
+    this.renderRedirect = this.renderRedirect.bind(this);
   }
 
   componentDidMount(){
@@ -20,11 +25,25 @@ class ArticleContainer extends Component {
     })
   }
 
+  handleRowClick(id){
+    this.setState({redirect: true});
+  }
+
+  renderRedirect(){
+    const articleUrl = "/articles/"+this.state.articleId;
+    if(this.state.redirect){
+      return <Redirect to={articleUrl}/>
+    }
+
+  }
+
   render() {
+    console.log("rendered");
     return(
       <div className="articles-container">
         <h1>Articles</h1>
-        <ArticleList articles={this.state.articles}/>
+        {this.renderRedirect()}
+        <ArticleList articles={this.state.articles} onRowClick={this.handleRowClick}/>
       </div>
     )
   }
