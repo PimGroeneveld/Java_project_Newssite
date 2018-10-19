@@ -5,12 +5,12 @@ body {
 
 header {
   background-color: #ff0000; 
-  height: 100px;
+  height: 70px;
   margin-bottom: 30px;
 }
 
 header ul {
-  padding: 75px 0 0 0;
+  padding: 45px 0 0 0;
   margin: 0;
 }
 
@@ -25,6 +25,16 @@ header ul li a {
   padding: 10px;
 }
 
+.navbar-top {
+  padding: 2px;
+  height: 25px;
+}
+
+.search-box {
+  padding: 3px 8px 0 0;
+  float: right;
+}
+
 .news-feed-container {
   padding: 30px;
 }
@@ -32,16 +42,13 @@ header ul li a {
 .main-article {
   display: flex;
   padding-bottom: 20px; 
-  justify-content: space-between;
+  justify-content: space-around;
 }
-.main-pic {
-  width: 70%;
-}
+
 .main-text {
   padding: 0 30px;
-  width: 30%;
 }
 
 .main-text h1 {
-  margin-top: 0;
+  margin-top: 0px; 
 }
