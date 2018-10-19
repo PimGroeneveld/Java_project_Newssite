@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArticleList from '../../components/articles/ArticleList.js';
+import '../../css/ArticlesStyles.css';
 
 class ArticleContainer extends Component {
 
@@ -15,7 +16,7 @@ class ArticleContainer extends Component {
     fetch(this.url)
     .then(response => response.json())
     .then((data) => {
-      this.setState({articles: data})
+      this.setState({articles: data});
     })
   }
 
@@ -25,7 +26,6 @@ class ArticleContainer extends Component {
         <h1>Articles</h1>
         <ArticleList articles={this.state.articles}/>
       </div>
-
     )
   }
 }
