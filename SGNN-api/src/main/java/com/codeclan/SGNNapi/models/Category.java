@@ -15,6 +15,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column
     private CategoryName name;
 
@@ -61,5 +62,9 @@ public class Category {
 
     public void setArticles(List<Article> articles) {
         this.articles = articles;
+    }
+
+    public void addArticle(Article article){
+        this.articles.add(article);
     }
 }

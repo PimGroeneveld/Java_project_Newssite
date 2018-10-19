@@ -19,10 +19,10 @@ public class Article {
     @Column
     private String headline;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String summary;
 
-    @Column(name = "full_story")
+    @Column(name = "full_story", columnDefinition = "TEXT")
     private String fullStory;
 
     @Column(name = "publish_date")
@@ -144,5 +144,13 @@ public class Article {
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public void addJournalist(Journalist journalist){
+        this.journalists.add(journalist);
+    }
+
+    public void addCategory(Category category){
+        this.categories.add(category);
     }
 }
