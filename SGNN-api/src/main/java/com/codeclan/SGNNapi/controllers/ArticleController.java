@@ -1,6 +1,7 @@
 package com.codeclan.SGNNapi.controllers;
 
 import com.codeclan.SGNNapi.models.Article;
+import com.codeclan.SGNNapi.models.Region;
 import com.codeclan.SGNNapi.repositories.articles.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,12 +24,18 @@ public class ArticleController {
     }
 
     @GetMapping(value = "/category/{categoryId}")
-    public List<Article> findArticlesByCategory(@PathVariable Long categoryId){
+    public List<Article> filterArticlesByCategory(@PathVariable Long categoryId){
         return articleRepository.findArticlesByCategory(categoryId);
     }
 
     @GetMapping(value = "/journalist/{journalistId}")
-    public List<Article> findArticlesByJournalist(@PathVariable Long journalistId){
+    public List<Article> filterArticlesByJournalist(@PathVariable Long journalistId){
         return articleRepository.findArticlesByJournalist(journalistId);
+    }
+
+    @GetMapping(value = "/region/{regionName}")
+    public List<Article> findArticlesByRegion(@PathVariable String regionName){
+        Region region = Region.valueOf(regionName.toUpperCase());
+        return articleRepository.findArticlesByRegion(region);
     }
 }
