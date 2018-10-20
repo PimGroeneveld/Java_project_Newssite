@@ -7,13 +7,11 @@ class JournalistContainer extends Component {
     super(props);
     this.state = {journalists: []}
     this.url = props.url;
-    console.log("props.url", props.url);
   }
 
   componentDidMount(){
     fetch(this.url).then((res) => res.json())
     .then((data) => {
-      console.log("componentDidMount data", data)
       if(data._embedded){
         this.setState({journalists: data._embedded.journalists})
       } else {

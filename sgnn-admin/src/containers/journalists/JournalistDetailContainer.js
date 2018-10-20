@@ -8,13 +8,11 @@ class JournalistDetailContainer extends Component {
     super(props);
     this.state = {journalist: null}
     this.url = props.url;
-    // console.log("journalistSingleDetail props.url", props.url);
   }
 
   componentDidMount(){
     fetch(this.url).then((res) => res.json())
     .then((data) => {
-      // console.log("detailcontainer: componentDidMount data", data)
       this.setState({journalist: data})
     })
   }
