@@ -1,7 +1,6 @@
 import React from 'react';
 
 const JournalistSingleDetail = props => {
-  // console.log("props in JournalistSingleDetail:", props.journalist);
   if(!props.journalist) return null;
   const url = "/journalists/" + props.journalist.id
   return(
@@ -9,10 +8,10 @@ const JournalistSingleDetail = props => {
       <a href = {url}>
         <img src = { process.env.PUBLIC_URL + '/images/woman.jpg' } alt = "journo"></img>
       </a>
-      <p>{ props.journalist.name }</p>
-      <p>{ props.journalist.cityOfResidence }</p>
-      <p>{ props.journalist.email}</p>
-      <p>{ props.journalist.phone}</p>
+      <p>Name: { props.journalist.name }</p>
+      <p>City of residence: { props.journalist.cityOfResidence }</p>
+      <p>Email: { props.journalist.email}</p>
+      <p>Phone number: { props.journalist.phone}</p>
     </div>
   )
 }
