@@ -10,5 +10,8 @@ import java.util.List;
 public interface JournalistProjection {
     Long getId();
     String getName();
+    String getEmail();
+    String getCityOfResidence();
+    String getPhone();
     List<Article> getArticles();
 }

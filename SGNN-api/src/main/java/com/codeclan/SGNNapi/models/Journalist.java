@@ -18,6 +18,15 @@ public class Journalist {
     @Column
     private String name;
 
+    @Column
+    private String email;
+
+    @Column(name= "city_of_residence")
+    private String cityOfResidence;
+
+    @Column
+    private String phone;
+
     @JsonIgnoreProperties("journalists")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -34,8 +43,11 @@ public class Journalist {
     public Journalist() {
     }
 
-    public Journalist(String name) {
+    public Journalist(String name, String cityOfResidence, String email, String phone) {
         this.name = name;
+        this.cityOfResidence = cityOfResidence;
+        this.email = email;
+        this.phone = phone;
         this.articles = new ArrayList<>();
     }
 
@@ -65,5 +77,29 @@ public class Journalist {
 
     public void addArticle(Article article){
         this.articles.add(article);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCityOfResidence() {
+        return cityOfResidence;
+    }
+
+    public void setCityOfResidence(String cityOfResidence) {
+        this.cityOfResidence = cityOfResidence;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
