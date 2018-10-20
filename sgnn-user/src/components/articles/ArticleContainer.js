@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Paragraph from './Paragraph';
 
 class ArticleContainer extends Component {
   constructor(props) {
@@ -30,12 +31,18 @@ class ArticleContainer extends Component {
       return null;
     }
 
+    const paragraphArray = this.state.article.fullStory.split("\n");
+    const paragraphElements = paragraphArray.map((paragraph, index) => {
+      return <Paragraph key = { index } paragraph = { paragraph } />
+    })
+
     return(
       <div className = "full-article">
         <h1>{ this.state.article.headline }</h1>
         <p className = "date">{ this.prettyDate() }</p>
         <img src = { process.env.PUBLIC_URL + this.state.article.imageUrl } alt = "article" ></img>
-        <p>{ this.state.article.fullStory }</p>
+        <h3>{ this.state.article.summary }</h3>
+        { paragraphElements }
       </div>
     )
   }
