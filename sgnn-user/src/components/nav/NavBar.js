@@ -31,7 +31,7 @@ class NavBar extends Component {
     const navCategoryLinks = this.state.categories.map((category, index) => {
       return(
         <li key = { index }>
-            <Link to = "/">{ category.name.toLowerCase() }</Link>
+            <Link to = { "/articles/category/" + category.id }>{ category.name.toLowerCase() }</Link>
         </li>
       )
     })

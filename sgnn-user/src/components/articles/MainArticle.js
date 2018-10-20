@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MainArticle = props => {
-  console.log(props.article);
   if(!props.article) { return null }
   
   return(

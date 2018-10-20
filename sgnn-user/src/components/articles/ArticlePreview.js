@@ -4,7 +4,8 @@ const ArticlePreview = props => {
   return(
     <div className = "article-preview">
       <a href = { "/articles/" + props.article.id }>
-        <img src = { process.env.PUBLIC_URL + props.article.imageUrl }></img>
+        <h3>{ props.article.headline }</h3>
+        <img src = { process.env.PUBLIC_URL + props.article.imageUrl } alt = "preview"></img>
         <p>{ props.article.summary }</p>
       </a>
     </div>

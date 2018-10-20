@@ -12,8 +12,15 @@ class App extends Component {
         <React.Fragment>
           <NavBarTop />
           <NavBar />
-          <Route exact path = "/" component = { NewsFeedContainer }></Route>
+          <Route exact path = "/" render = { props => {
+            // Adding the key forces the component to remount when props are updated
+            return <NewsFeedContainer key = { props.match.params.id } url = "/articles" />
+           } }></Route>
           <Route exact path = "/articles/:id" component = { ArticleContainer }></Route>
+          <Route exact path = "/articles/category/:id" render = { props => {
+            const url = "/articles/category/" + props.match.params.id;
+            return <NewsFeedContainer key = { props.match.params.id } url = { url } />
+          } }></Route>
         </React.Fragment>
       </Router>
     );

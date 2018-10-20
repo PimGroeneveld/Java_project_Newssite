@@ -5,17 +5,16 @@ import ArticleList from '../containers/ArticleList';
 class NewsFeedContainer extends Component {
   constructor(props) {
     super(props);
+    this.url = props.url;
     this.state = {
       articles: []
     }
   }
 
   componentDidMount() {
-    fetch("/articles")
+    fetch(this.url)
       .then(res => res.json())
-      .then(data => {
-        this.setState({ articles: data })
-      })
+      .then(data => this.setState({ articles: data }))
   }
 
   render() {
