@@ -4,6 +4,7 @@ import com.codeclan.SGNNapi.models.*;
 import com.codeclan.SGNNapi.repositories.articles.ArticleRepository;
 import com.codeclan.SGNNapi.repositories.categories.CategoryRepository;
 import com.codeclan.SGNNapi.repositories.journalists.JournalistRepository;
+import com.codeclan.SGNNapi.repositories.regions.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -23,6 +24,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     ArticleRepository articleRepository;
+
+    @Autowired
+    RegionRepository regionRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -72,6 +76,19 @@ public class DataLoader implements ApplicationRunner {
         Journalist journalist6 = new Journalist("Jared Lawthom", "Cardiff", "jared@sgnn.com", "+4478975786434");
         journalistRepository.save(journalist6);
 
+        //Regions
+        Region region1 = new Region(RegionName.SCOTLAND);
+        regionRepository.save(region1);
+
+        Region region2 = new Region(RegionName.ENGLAND);
+        regionRepository.save(region2);
+
+        Region region3 = new Region(RegionName.NORTHERN_IRELAND);
+        regionRepository.save(region3);
+
+        Region region4 = new Region(RegionName.WALES);
+        regionRepository.save(region4);
+
         // Article 1
         String headline1 = "Mundell concern over Brexit fish policy";
         String summary1 = "Scottish Secretary David Mundell has raised concerns with the prime minister over the timing of the UK's departure from the Common Fisheries Policy.";
@@ -82,7 +99,6 @@ public class DataLoader implements ApplicationRunner {
                 "But with the two sides so far failing to reach a deal after an EU summit of all its leaders this week, Mrs May said this arrangement could be extended \"for a few months\", if needed.\n";
         LocalDateTime date1 = LocalDateTime.of(2018, Month.OCTOBER, 16, 10, 10, 30);
         String image1 = "/images/mondellgetty.jpg";
-        Region region1 = Region.SCOTLAND;
         Article article1 = new Article( headline1, summary1, fullStory1, date1, image1, region1);
         articleRepository.save(article1);
 
@@ -101,8 +117,7 @@ public class DataLoader implements ApplicationRunner {
                 "Some other animals from the herd are also being destroyed as a precaution and tested.";
         LocalDateTime date2 = LocalDateTime.now();
         String image2 = "/images/cows.jpg";
-        Region region2 = Region.SCOTLAND;
-        Article article2 = new Article( headline2, summary2, fullStory2, date2, image2, region2);
+        Article article2 = new Article( headline2, summary2, fullStory2, date2, image2, region1);
         articleRepository.save(article2);
 
         article2.addCategory(generalCategory);
@@ -120,8 +135,7 @@ public class DataLoader implements ApplicationRunner {
                 "\"After running it would be a sharp pain with a dull ache for several hours,\" she said.";
         LocalDateTime date3 = LocalDateTime.of(2018, Month.OCTOBER, 18, 10, 17, 30);
         String image3 = "/images/legstill4.jpg";
-        Region region3 = Region.ENGLAND;
-        Article article3 = new Article( headline3, summary3, fullStory3, date3, image3, region3);
+        Article article3 = new Article( headline3, summary3, fullStory3, date3, image3, region2);
         articleRepository.save(article3);
 
         article3.addCategory(generalCategory);
@@ -136,8 +150,7 @@ public class DataLoader implements ApplicationRunner {
                 "Afterwards, the Portuguese said he could cope with the \"manhunt\" against him and reiterated that the contract given to him by the club ran until 2020.";
         LocalDateTime date4 = LocalDateTime.of(2018, Month.OCTOBER, 17, 9, 17, 30);
         String image4 = "/images/Manchester-United.jpg";
-        Region region4 = Region.ENGLAND;
-        Article article4 = new Article( headline4, summary4, fullStory4, date4, image4, region4);
+        Article article4 = new Article( headline4, summary4, fullStory4, date4, image4, region2);
         articleRepository.save(article4);
 
         article4.addCategory(generalCategory);
@@ -154,8 +167,7 @@ public class DataLoader implements ApplicationRunner {
                 "\"Don’t be embarrassed or ignore any potential signs as the positive news is that nine out of 10 women in Northern Ireland survive breast cancer when it is caught and treated early.";
         LocalDateTime date5 = LocalDateTime.of(2018, Month.OCTOBER, 15, 9, 17, 30);
         String image5 = "/images/breast_cancer.jpeg";
-        Region region5 = Region.NORTHERN_IRELAND;
-        Article article5 = new Article( headline5, summary5, fullStory5, date5, image5, region5);
+        Article article5 = new Article( headline5, summary5, fullStory5, date5, image5, region3);
         articleRepository.save(article5);
 
         article5.addCategory(generalCategory);
@@ -174,8 +186,7 @@ public class DataLoader implements ApplicationRunner {
                 "A no-deal Brexit that created friction on the Northern Ireland border, or delays if extra checks were put in place between Great Britain and Northern Ireland to implement what's become known as a Brexit backstop, could have a significant impact on trade flows, he said.";
         LocalDateTime date6 = LocalDateTime.now();
         String image6 = "/images/brexit.jpg";
-        Region region6 = Region.NORTHERN_IRELAND;
-        Article article6 = new Article( headline6, summary6, fullStory6, date6, image6, region6);
+        Article article6 = new Article( headline6, summary6, fullStory6, date6, image6, region3);
         articleRepository.save(article6);
 
         article6.addCategory(generalCategory);
@@ -195,8 +206,8 @@ public class DataLoader implements ApplicationRunner {
                 "However, it is argued that the private sector would invest £3.1bn in the long-term as a direct result of the growth deal.";
         LocalDateTime date7 = LocalDateTime.of(2018, Month.OCTOBER, 13, 9, 17, 30);
         String image7 = "/images/nuclear_plant.jpg";
-        Region region7 = Region.WALES;
-        Article article7 = new Article( headline7, summary7, fullStory7, date7, image7, region7);
+
+        Article article7 = new Article( headline7, summary7, fullStory7, date7, image7, region4);
         articleRepository.save(article7);
 
         article7.addCategory(generalCategory);
@@ -214,8 +225,7 @@ public class DataLoader implements ApplicationRunner {
                 "She added: \"Sales seem to be getting quicker each year, especially within the last five years.\"";
         LocalDateTime date8 = LocalDateTime.of(2018, Month.OCTOBER, 14, 9, 17, 30);
         String image8 = "/images/xmassellout.png";
-        Region region8 = Region.WALES;
-        Article article8 = new Article( headline8, summary8, fullStory8, date8, image8, region8);
+        Article article8 = new Article( headline8, summary8, fullStory8, date8, image8, region4);
         articleRepository.save(article8);
 
         article8.addCategory(generalCategory);
