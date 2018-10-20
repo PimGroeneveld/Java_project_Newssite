@@ -34,7 +34,7 @@ class ArticleDetailContainer extends Component {
         <h1>Article Details</h1>
         <a href="">Edit</a>
         <a href="">Delete</a>
-        <a href="">Back</a>
+        <a href="/articles">Back</a>
         <div className="article-detail">
           <h2>{this.state.article.headline}</h2>
           <h5>Published Date: {this.state.article.publishDate}</h5>
