@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 
 import ArticleContainer from './containers/articles/ArticleContainer';
-import ArticleDetail from './components/articles/ArticleDetail.js';
+import ArticleDetailContainer from './containers/articles/ArticleDetailContainer.js';
 
 import HomeContainer from './containers/HomeContainer';
 import JournalistContainer from './containers/journalists/JournalistContainer';
@@ -23,8 +23,8 @@ class App extends Component {
               return <ArticleContainer url={url}/>
             }} />
             <Route exact path="/articles/:id" render={(props) => {
-              const url = "/articles"+props.match.params.id;
-              return <ArticleDetail url={url}/>
+              const url = "/articles/"+props.match.params.id;
+              return <ArticleDetailContainer url={url}/>
             }
 
             }/>

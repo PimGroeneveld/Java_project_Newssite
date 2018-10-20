@@ -31,3 +31,9 @@ td {
   width: 100px;
   text-align: center;
 }
+
+a{
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}

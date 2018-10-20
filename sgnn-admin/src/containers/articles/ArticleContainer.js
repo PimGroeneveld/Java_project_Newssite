@@ -26,7 +26,7 @@ class ArticleContainer extends Component {
   }
 
   handleRowClick(id){
-    this.setState({redirect: true});
+    this.setState({redirect: true, articleId: id});
   }
 
   renderRedirect(){
