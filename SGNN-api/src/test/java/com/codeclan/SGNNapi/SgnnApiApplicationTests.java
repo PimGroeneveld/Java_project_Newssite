@@ -52,7 +52,7 @@ public class SgnnApiApplicationTests {
 
 	@Test
 	public void canFindArticlesByRegion() {
-		List<Article> articles = articleRepository.findArticlesByRegion(Region.SCOTLAND);
+		List<Article> articles = articleRepository.findArticlesByRegion(RegionName.SCOTLAND);
 		assertEquals(2, articles.size());
 	}
 

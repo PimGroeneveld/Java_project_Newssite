@@ -1,7 +1,7 @@
 package com.codeclan.SGNNapi.controllers;
 
 import com.codeclan.SGNNapi.models.Article;
-import com.codeclan.SGNNapi.models.Region;
+import com.codeclan.SGNNapi.models.RegionName;
 import com.codeclan.SGNNapi.repositories.articles.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +35,7 @@ public class ArticleController {
 
     @GetMapping(value = "/region/{regionName}")
     public List<Article> filterArticlesByRegion(@PathVariable String regionName){
-        Region region = Region.valueOf(regionName.toUpperCase());
+        RegionName region = RegionName.valueOf(regionName.toUpperCase());
         return articleRepository.findArticlesByRegion(region);
     }
 
