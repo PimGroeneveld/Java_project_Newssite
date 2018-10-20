@@ -10,6 +10,8 @@ class NavBar extends Component {
   }
 
   componentDidMount() {
+    // A list of categories are found by retrieveing all articles then extracting them, might
+    // be an idea to add a category endpoint to the api.
     let categories = [];
     fetch("/articles")
       .then(res => res.json())
