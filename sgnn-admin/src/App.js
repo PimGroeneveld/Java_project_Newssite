@@ -10,6 +10,8 @@ import ArticleFormContainer from './containers/articles/ArticleFormContainer.js'
 import HomeContainer from './containers/HomeContainer';
 import JournalistContainer from './containers/journalists/JournalistContainer';
 import JournalistFormContainer from './containers/journalists/JournalistFormContainer';
+import JournalistDetailContainer from './containers/journalists/JournalistDetailContainer';
+import JournalistEditFormContainer from './containers/journalists/JournalistEditFormContainer';
 
 class App extends Component {
   render() {
@@ -35,15 +37,27 @@ class App extends Component {
             }/>
 
             {/* Journalists routes */}
+            {/*Show*/}
             <Route exact path="/journalists" render={() => {
               const url = "/journalists";
               return <JournalistContainer url={url}/>
             }} />
+            {/*Add*/}
             <Route exact path = "/journalists/new" component = { JournalistFormContainer } />
+            {/*Edit */}
+            <Route exact path="/journalists/:id/edit" render={(props) => {
+              // console.log("props.match.params.id", props.match.params.id)
+              const url = "/journalists/" + props.match.params.id;
+              return <JournalistEditFormContainer url={url} jId={props.match.params.id}/>
+              }} />
+            {/*Show one*/}
             <Route exact path="/journalists/:id" render={(props) => {
               const url = "/journalists/" + props.match.params.id; //ends up being something like /journalists/1?projection=embedShip
-              return <JournalistContainer url={url}/>
+              return <JournalistDetailContainer url={url}/>
               }} />
+            {/*Delete */}
+
+
           </Switch>
           <Footer />
         </React.Fragment>

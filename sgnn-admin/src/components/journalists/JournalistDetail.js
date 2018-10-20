@@ -1,7 +1,7 @@
 import React from 'react';
 
 const JournalistDetail = props => {
-  console.log("props in JournalistDetail:", props.journalist);
+  // console.log("props in JournalistDetail:", props.journalist);
   const url = "/journalists/" + props.journalist.id
   return(
     <div className = "journalist-detail">
