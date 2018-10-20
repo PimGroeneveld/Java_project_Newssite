@@ -18,11 +18,11 @@ public class Journalist {
     @Column
     private String name;
 
-    @Column
-    private String email;
-
     @Column(name= "city_of_residence")
     private String cityOfResidence;
+
+    @Column
+    private String email;
 
     @Column
     private String phone;

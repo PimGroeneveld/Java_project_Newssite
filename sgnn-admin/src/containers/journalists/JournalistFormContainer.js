@@ -12,6 +12,9 @@ class JournalistFormContainer extends Component {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         "name": event.target.name.value,
+        "cityOfResidence": event.target.cityOfResidence.value,
+        "email": event.target.email.value,
+        "phone": event.target.phone.value,
         "image": event.target.picture.value
         //this correct route?
       })
