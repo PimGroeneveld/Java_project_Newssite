@@ -1,0 +1,39 @@
+#articles-table {
+  border: 1px solid black;
+}
+
+thead {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.article-number-element {
+  padding-left: 10px;
+  width: 30px;
+  text-align: center;
+}
+.article-headline-element {
+  width: 600px;
+  text-align: center;
+}
+.article-date-element {
+  padding-left: 10px;
+  width: 150px;
+  text-align: center;
+}
+.article-region-element {
+  padding-left: 10px;
+  width: 100px;
+  text-align: center;
+}
+
+a{
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
