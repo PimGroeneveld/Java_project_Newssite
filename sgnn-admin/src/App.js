@@ -10,6 +10,7 @@ import ArticleFormContainer from './containers/articles/ArticleFormContainer.js'
 import HomeContainer from './containers/HomeContainer';
 import JournalistContainer from './containers/journalists/JournalistContainer';
 import JournalistFormContainer from './containers/journalists/JournalistFormContainer';
+import JournalistDetailContainer from './containers/journalists/JournalistDetailContainer';
 
 class App extends Component {
   render() {
@@ -42,7 +43,7 @@ class App extends Component {
             <Route exact path = "/journalists/new" component = { JournalistFormContainer } />
             <Route exact path="/journalists/:id" render={(props) => {
               const url = "/journalists/" + props.match.params.id; //ends up being something like /journalists/1?projection=embedShip
-              return <JournalistContainer url={url}/>
+              return <JournalistDetailContainer url={url}/>
               }} />
           </Switch>
           <Footer />

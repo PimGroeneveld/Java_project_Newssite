@@ -15,7 +15,7 @@ class JournalistFormContainer extends Component {
         "cityOfResidence": event.target.cityOfResidence.value,
         "email": event.target.email.value,
         "phone": event.target.phone.value,
-        "image": event.target.picture.value
+        // "image": event.target.picture.value
         //this correct route?
       })
     })
@@ -32,11 +32,18 @@ class JournalistFormContainer extends Component {
         <form onSubmit = { this.handleSubmit }>
           <input type = "text" placeholder = "Name" name = "name"></input>
           <br/>
-          <input type = "text" placeholder = "Picture url" name = "picture"></input>
+          <input type = "text" placeholder = "City of residence" name = "cityOfResidence"></input>
+          <br/>
+          <input type = "text" placeholder = "Email" name = "email"></input>
+          <br/>
+          <input type = "text" placeholder = "Phone" name = "phone"></input>
           <br/>
           <button type = "submit">Save</button>
         </form>
       </div>
+      // <input type = "text" placeholder = "Picture url" name = "picture"></input>
+      // <br/>
+      // maybe leave picture out for now?
     )
   }
 }
