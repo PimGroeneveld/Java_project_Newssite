@@ -35,7 +35,7 @@ class App extends Component {
             }/>
 
             {/* Journalists routes */}
-            Route exact path="/journalists" render={() => {
+            <Route exact path="/journalists" render={() => {
               const url = "/journalists";
               return <JournalistContainer url={url}/>
             }} />
