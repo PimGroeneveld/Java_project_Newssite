@@ -18,7 +18,6 @@ class App extends Component {
         <React.Fragment>
           <NavBar />
           <Switch>
-
             <Route exact path = "/" component = { HomeContainer } />
 
             {/* Articles routes */}
@@ -36,9 +35,15 @@ class App extends Component {
             }/>
 
             {/* Journalists routes */}
-            <Route exact path = "/journalists" component = { JournalistContainer } />
+            Route exact path="/journalists" render={() => {
+              const url = "/journalists";
+              return <JournalistContainer url={url}/>
+            }} />
             <Route exact path = "/journalists/new" component = { JournalistFormContainer } />
-            
+            <Route exact path="/journalists/:id" render={(props) => {
+              const url = "/journalists/" + props.match.params.id; //ends up being something like /journalists/1?projection=embedShip
+              return <JournalistContainer url={url}/>
+              }} />
           </Switch>
           <Footer />
         </React.Fragment>

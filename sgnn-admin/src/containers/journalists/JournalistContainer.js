@@ -5,19 +5,20 @@ import AddJournalistButton from '../../components/journalists/AddJournalistButto
 class JournalistContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      journalists: []
-    }
+    this.state = {journalists: []}
+    this.url = props.url;
+    console.log("props.url", props.url);
   }
 
-  componentDidMount() {
-    this.setState({ journalists: 
-      [
-        { name: 'bob'},
-        { name: 'dave'},
-        { name: 'pim' },
-        { name: 'sithara' }
-      ] 
+  componentDidMount(){
+    fetch(this.url).then((res) => res.json())
+    .then((data) => {
+      console.log("componentDidMount data", data)
+      if(data._embedded){
+        this.setState({journalists: data._embedded.journalists})
+      } else {
+        this.setState({journalists: [data]})
+      }
     })
   }
 
@@ -26,7 +27,7 @@ class JournalistContainer extends Component {
       <div className="journalist-container">
         <h1>Journalists</h1>
         <AddJournalistButton />
-        <JournalistList journalists = { this.state.journalists } /> 
+        <JournalistList journalists = { this.state.journalists } />
       </div>
     )
   }
