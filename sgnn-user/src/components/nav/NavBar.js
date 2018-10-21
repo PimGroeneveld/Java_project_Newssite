@@ -12,7 +12,7 @@ class NavBar extends Component {
 
   toggleRegionBar(event) {
     const regionNavbar = document.querySelector(".navbar-bottom ul");
-    if(regionNavbar.style.display === "none") {
+    if(regionNavbar.style.display !== "block") {
       regionNavbar.style.display = "block";
     } else {
       regionNavbar.style.display = "none";
