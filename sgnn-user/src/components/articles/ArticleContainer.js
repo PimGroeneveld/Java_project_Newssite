@@ -39,7 +39,7 @@ class ArticleContainer extends Component {
     return(
       <div className = "full-article">
         <h1>{ this.state.article.headline }</h1>
-        <p className = "date">{ this.prettyDate() }</p>
+        <p className = "date">Published { this.prettyDate() }</p>
         <img src = { process.env.PUBLIC_URL + this.state.article.imageUrl } alt = "article" ></img>
         <h3>{ this.state.article.summary }</h3>
         { paragraphElements }
