@@ -61,13 +61,6 @@ class App extends Component {
               const url = "/journalists/" + props.match.params.id;
               return <JournalistDetailContainer url={url}/>
               }} />
-              {/* (Pim) I think the issue is somewhere here with the route. Its not passing down props to JournalistDeleteContainer, since it hits /:id for the detailcontainer and then stops. Tried variations of exact path/path and didnt work*/}
-              {/*Delete */}
-          {/* <Route path="/journalists/:id" render={(props) => {
-            const url = "/journalists/" + props.match.params.id;
-            return <JournalistDeleteContainer url={url}
-              jId={props.match.params.id}/>
-            }} /> */}
           </Switch>
           <Footer />
         </React.Fragment>
