@@ -14,7 +14,13 @@ class NewsFeedContainer extends Component {
   componentDidMount() {
     fetch(this.url)
       .then(res => res.json())
-      .then(data => this.setState({ articles: data }))
+      .then(data => {
+        if(data._embedded) {
+          this.setState({ articles: data._embedded.articles })
+        } else {
+          this.setState({ articles: data })
+        }
+      })
   }
 
   render() {

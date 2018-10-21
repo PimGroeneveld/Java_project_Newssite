@@ -20,23 +20,19 @@ class NavBar extends Component {
   }
 
   componentDidMount() {
-    let categories = [];
-    let regions = [];
-    fetch("/articles")
+    fetch("/categories")
       .then(res => res.json())
       .then(data => { 
-        categories = data
-                      .map(article => article.categories)
-                      .flat()
-                      .filter((o, i, a) => i === a.findIndex((c) => (c.name === o.name)))
-        regions = data
-                    .map(article => article.region)
-                    .filter((o, i, a) => i === a.findIndex((c) => (c.regionName === o.regionName)))
-
         this.setState({
-          categories: categories,
-          regions: regions
+          categories: data._embedded.categories
         })  
+      })
+    fetch("/regions")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          regions: data._embedded.regions
+        })
       })
   }
 

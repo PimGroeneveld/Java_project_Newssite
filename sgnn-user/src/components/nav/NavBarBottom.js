@@ -14,7 +14,7 @@ class NavBarBottom extends Component {
     fetch("/articles")
       .then(res => res.json())
       .then(data => {
-        regions = data
+        regions = data._embedded.articles
                     .map(article => article.region)
                     .filter((o, i, a) => i === a.findIndex((c) => (c.regionName === o.regionName)))
 
