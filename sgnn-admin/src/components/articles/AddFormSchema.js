@@ -3,7 +3,7 @@ import Form from 'react-jsonschema-form';
 
 
 const AddFormSchema = (props) => {
-
+  console.log(props);
   if(props.journalists.length === 0 || props.categories.length === 0 || props.regions.length === 0 ) return null;
 
   const journalistLinks = props.journalists.map((journalist) => journalist._links.self.href);
@@ -91,6 +91,7 @@ const AddFormSchema = (props) => {
     const region = props.regions.find((region) => {
       return region.id === regionId
     })
+    console.log(region);
     return region._links.self.href
   }
 
@@ -113,8 +114,6 @@ const AddFormSchema = (props) => {
     for (var i = 0; i < props.journalists.length; i++) {
       for (var j = 0; j < journalists.length; j++) {
         if (props.journalists[i].id === journalists[j].id) {
-          console.log(true);
-          console.log(props.journalists[i]);
           journalistsLinks.push(props.journalists[i]._links.self.href)
         }
       }
@@ -131,21 +130,25 @@ const AddFormSchema = (props) => {
         summary: props.formData.summary,
         fullStory: props.formData.fullStory,
         imageUrl: props.formData.imageUrl,
-        region: getRegionLinkById(props.formData._embedded.region.id),
-        categories: getCategoriesLinksByIds(props.formData._embedded.categories),
-        journalists: getJournalistByIds(props.formData._embedded.journalists)
+        region: getRegionLinkById(props.formData.region.id),
+        categories: getCategoriesLinksByIds(props.formData.categories),
+        journalists: getJournalistByIds(props.formData.journalists)
       }
     }
     else {
       newFormData = null;
     }
 
-
+  function handleFormInputChange(event){
+    console.log("change::", event);
+    newFormData = event.formData;
+  }
 
 
 
   function handleFormSubmit(event) {
     if (props.article) {
+      newFormData = event.formData;
       props.onEditArticleFormSubmit(event);
     }
     else{
@@ -161,7 +164,7 @@ const AddFormSchema = (props) => {
   return(
 
     <Form schema={schema} uiSchema={uiSchema}
-      onSubmit={handleFormSubmit} formData={newFormData}>
+      onSubmit={handleFormSubmit} formData={newFormData} onChange={handleFormInputChange}>
       <div>
         <button type="submit">Submit</button>
         <button type="button" onClick={handleFormCancel}>Cancel</button>

@@ -19,7 +19,7 @@ class ArticleDetailContainer extends Component {
     fetch(this.url)
     .then(response => response.json())
     .then((data) => {
-      this.setState({article: data, journalists: data._embedded.journalists})
+      this.setState({article: data, journalists: data.journalists})
     })
   }
 
@@ -58,7 +58,7 @@ class ArticleDetailContainer extends Component {
       return <Link key={journalist.id} to={journalistUrl}>{journalist.name}</Link>
     });
 
-    const editUrl = this.url+"/edit";
+    const editUrl = "/articles/"+this.state.article.id+"/edit";
 
     return(
       <div className="article-detail-container">
@@ -72,7 +72,7 @@ class ArticleDetailContainer extends Component {
           <h6>By :
             {journalists}
           </h6>
-          <h6>Region : {this.state.article._embedded.region.regionName}</h6>
+          <h6>Region : {this.state.article.region.regionName}</h6>
           <img src={this.state.article.imageUrl} alt="ArticleImage"/>
           <h3>Summary</h3>
           <p>{this.state.article.summary}</p>

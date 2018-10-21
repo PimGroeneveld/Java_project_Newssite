@@ -37,6 +37,9 @@ class ArticleAddFormContainer extends Component {
   }
 
   handleNewArticleFormSubmit(event) {
+
+    console.log(event.formData);
+
     const categories = event.formData.categories;
     const generalCategoryLink = "http://localhost:3000/categories/1";
     if(categories){
@@ -63,7 +66,9 @@ class ArticleAddFormContainer extends Component {
         "categories": event.formData.categories,
         "journalists": event.formData.journalists
       })
-    }).then(() => {
+     })
+     .then(response => response.json())
+    .then(() => {
       window.location = '/articles';
     })
   }

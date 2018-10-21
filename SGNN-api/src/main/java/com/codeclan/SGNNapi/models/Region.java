@@ -1,7 +1,5 @@
 package com.codeclan.SGNNapi.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +10,7 @@ public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long Id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "region_name")
@@ -31,11 +29,11 @@ public class Region {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public RegionName getRegionName() {

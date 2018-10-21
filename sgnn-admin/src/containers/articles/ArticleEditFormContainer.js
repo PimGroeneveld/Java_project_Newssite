@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import AddFormSchema from '../../components/articles/AddFormSchema.js';
 
 class ArticleEditFormContainer extends Component {
@@ -44,38 +45,30 @@ class ArticleEditFormContainer extends Component {
   }
 
   handleEditFormSubmit(event){
-    console.log("NEW DATA",event.formData);
-    console.log("OLD DATA",this.state.formData);
-    console.log(this.state.regions);
-    const categories = event.formData.categories;
-    // const generalCategoryLink = "http://localhost:3000/categories/1";
-    // if(categories){
-    //   if(!categories.includes(generalCategoryLink)){
-    //     categories.push(generalCategoryLink);
-    //   }
-    // }
-    // else {
-    //   categories.push(generalCategoryLink);
-    // }
+
+    console.log(event.formData.region);
 
     const today = new Date();
+    const updateUrl="/articles/"+this.state.article.id;
+    fetch(updateUrl, {
+      method: "PUT",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "headline": event.formData.headline,
+        "summary": event.formData.summary,
+        "fullStory": event.formData.fullStory,
+        "publishDate": today,
+        "imageUrl": event.formData.imageUrl,
+        "region": event.formData.region,
+        "categories": event.formData.categories,
+        "journalists": event.formData.journalists
+      })
+    })
+    .then(response => response.json())
+    .then(() => {
+      window.location = updateUrl;
+    })
 
-    // fetch(this.url, {
-    //   method: "PUT",
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     "headline": event.formData.headline,
-    //     "summary": event.formData.summary,
-    //     "fullStory": event.formData.fullStory,
-    //     "publishDate": today,
-    //     "imageUrl": event.formData.imageUrl,
-    //     "region": event.formData.region,
-    //     "categories": event.formData.categories,
-    //     "journalists": event.formData.journalists
-    //   })
-    // }).then(() => {
-    //   window.location = this.url;
-    // })
   }
 
   render(){
@@ -83,7 +76,7 @@ class ArticleEditFormContainer extends Component {
       <div>
         <h1>Edit Article Details</h1>
       <AddFormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} article={this.state.article} onEditArticleFormSubmit = {this.handleEditFormSubmit} formData={this.state.formData}/>
-      
+
       </div>
     )
   }
