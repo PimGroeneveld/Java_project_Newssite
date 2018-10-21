@@ -5,6 +5,7 @@ public enum RegionName {
     SCOTLAND,
     WALES,
     ENGLAND,
-    NORTHERN_IRELAND
+    NORTHERN_IRELAND,
+    OTHERS
 
 }

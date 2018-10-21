@@ -1,5 +1,7 @@
 package com.codeclan.SGNNapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +14,10 @@ public class Region {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "region_name")
     private RegionName regionName;
+
 
     @OneToMany(mappedBy = "region")
     private List<Article> articles;
