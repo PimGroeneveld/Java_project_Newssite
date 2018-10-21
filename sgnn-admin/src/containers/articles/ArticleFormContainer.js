@@ -24,6 +24,7 @@ class ArticleFormContainer extends Component {
     fetch('/categories')
     .then(response => response.json())
     .then((data) => {
+      console.log(data);
       this.setState({categories: data._embedded.categories})
     })
 
@@ -50,7 +51,7 @@ class ArticleFormContainer extends Component {
     return(
       <div className="article-form-container">
         <h2>Add new article</h2>
-        <FormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions}/>
+        {/* <FormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions}/> */}
         {/* <form action="">
           <label htmlFor="headline">Headline : </label>
           <input type="text" name="headline" required/>
