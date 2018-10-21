@@ -38,7 +38,6 @@ class ArticleContainer extends Component {
   }
 
   render() {
-    console.log("rendered");
     return(
       <div className="articles-container">
         <h1>Articles</h1>

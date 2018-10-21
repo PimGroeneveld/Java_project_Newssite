@@ -23,6 +23,7 @@ class ArticleFormContainer extends Component {
     fetch('/categories')
     .then(response => response.json())
     .then((data) => {
+      console.log(data);
       this.setState({categories: data._embedded.categories})
     })
   }
