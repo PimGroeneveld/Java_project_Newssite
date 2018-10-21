@@ -16,13 +16,16 @@ class App extends Component {
           <Route exact path = "/" render = { props => {
             // Adding the key forces the component to remount when props are updated
             return <NewsFeedContainer key = { props.match.params.id } url = "/articles" />
-           } }></Route>
-          <Route exact path = "/articles/:id" component = { ArticleContainer }></Route>
+           } } />
+          <Route exact path = "/articles/:id" component = { ArticleContainer } />
           <Route exact path = "/articles/category/:id" render = { props => {
             const url = "/articles/category/" + props.match.params.id;
-            // Adding the key forces the component to remount when props are updated
             return <NewsFeedContainer key = { props.match.params.id } url = { url } />
-          } }></Route>
+          } } />
+          <Route exact path = "/articles/search/:query" render = { props => {
+            const url = "/articles/search/" + props.match.params.query;
+            return <NewsFeedContainer key = { props.match.params.query } url = { url } />
+          }} />
           <Footer />
         </React.Fragment>
       </Router>
