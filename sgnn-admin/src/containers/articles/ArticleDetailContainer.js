@@ -23,7 +23,7 @@ class ArticleDetailContainer extends Component {
 
   render(){
     if (!this.state.article) return null;
-
+    console.log(this.state.article);
     const journalists = this.state.journalists.map((journalist) => {
       const journalistUrl ="/journalists/"+journalist.id;
       return <Link key={journalist.id} to={journalistUrl}>{journalist.name}</Link>
@@ -41,7 +41,8 @@ class ArticleDetailContainer extends Component {
           <h6>By :
           {journalists}
           </h6>
-          {/* <img src={this.state.article.imageUrl} alt="ArticleImage"/> */}
+          <h6>Region : {this.state.article._embedded.region.regionName}</h6>
+          <img src={this.state.article.imageUrl} alt="ArticleImage"/>
           <h3>Summary</h3>
           <p>{this.state.article.summary}</p>
           <h3>Description</h3>
