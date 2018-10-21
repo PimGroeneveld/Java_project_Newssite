@@ -6,7 +6,7 @@ const ArticleList = (props) => {
   if(!props.articles) return null;
   
   const articlesOptions = props.articles.map((article, index) => {
-    const articleUrl = "/articles/"+article.id;
+    console.log("in");
     return (
         <Article key={index} article={article} index={index} onRowClick={props.onRowClick}/>
     )
