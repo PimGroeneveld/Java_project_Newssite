@@ -4,7 +4,7 @@ import Form from 'react-jsonschema-form';
 
 const AddFormSchema = (props) => {
 
-  if(!props.journalists || !props.categories || !props.regions) return null;
+  if(!props.journalists || !props.categories || !props.regions || !props.formData) return null;
 
   const journalistLinks = props.journalists.map((journalist) => journalist._links.self.href);
 
@@ -85,7 +85,43 @@ const AddFormSchema = (props) => {
       "ui:emptyValue": regionLinks[0]
     }
   }
-  //const log = (type) => console.log.bind(console, type);
+
+
+  const getRegionLinkById = (regionId) => {
+    console.log(props.regions);
+    const region = props.regions.find((region) => {
+      return region.id === regionId
+    })
+    return region._links.self.href
+  }
+
+  const getCategoriesLinksByIds = (categories) => {
+console.log(categories);
+    // var categoryLinks = [];
+    //
+    // for (var i = 0; i < props.categories.length; i++) {
+    //   for (var j = 0; j < categories.length; j++) {
+    //     if (props.categories[i].id === categories[j].id) {
+    //       categoryLinks.push(props.categories[i]._links.self.href)
+    //     }
+    //   }
+    // }
+    // return categoryLinks;
+  }
+
+
+  console.log(props.formData);
+    const newFormData = {
+
+      headline: props.formData.headline,
+      summary: props.formData.summary,
+      fullStory: props.formData.fullStory,
+      imageUrl: props.formData.imageUrl,
+      region: getRegionLinkById(props.formData._embedded.region.id)
+      // categories: getCategoriesLinksByIds(props.formData._embedded.categories)
+    }
+
+
 
   function handleFormSubmit(event) {
     if (props.article) {
@@ -104,7 +140,7 @@ const AddFormSchema = (props) => {
   return(
 
     <Form schema={schema} uiSchema={uiSchema}
-      onSubmit={handleFormSubmit} formData={props.formData}>
+      onSubmit={handleFormSubmit} formData={newFormData}>
       <div>
         <button type="submit">Submit</button>
         <button type="button" onClick={handleFormCancel}>Cancel</button>
