@@ -46,35 +46,35 @@ class ArticleEditFormContainer extends Component {
   handleEditFormSubmit(event){
     console.log("NEW DATA",event.formData);
     console.log("OLD DATA",this.state.formData);
-    // const categories = event.formData.categories;
-    // const generalCategoryLink = "http://localhost:3000/categories/1";
-    // if(categories){
-    //   if(!categories.includes(generalCategoryLink)){
-    //     categories.push(generalCategoryLink);
-    //   }
-    // }
-    // else {
-    //   categories.push(generalCategoryLink);
-    // }
-    //
-    // const today = new Date();
-    //
-    // fetch(this.url, {
-    //   method: "PUT",
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     "headline": event.formData.headline,
-    //     "summary": event.formData.summary,
-    //     "fullStory": event.formData.fullStory,
-    //     "publishDate": today,
-    //     "imageUrl": event.formData.imageUrl,
-    //     "region": event.formData.region,
-    //     "categories": event.formData.categories,
-    //     "journalists": event.formData.journalists
-    //   })
-    // }).then(() => {
-    //   window.location = this.url;
-    // })
+    const categories = event.formData.categories;
+    const generalCategoryLink = "http://localhost:3000/categories/1";
+    if(categories){
+      if(!categories.includes(generalCategoryLink)){
+        categories.push(generalCategoryLink);
+      }
+    }
+    else {
+      categories.push(generalCategoryLink);
+    }
+
+    const today = new Date();
+
+    fetch(this.url, {
+      method: "PUT",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "headline": event.formData.headline,
+        "summary": event.formData.summary,
+        "fullStory": event.formData.fullStory,
+        "publishDate": today,
+        "imageUrl": event.formData.imageUrl,
+        "region": event.formData.region,
+        "categories": event.formData.categories,
+        "journalists": event.formData.journalists
+      })
+    }).then(() => {
+      window.location = this.url;
+    })
   }
 
   render(){

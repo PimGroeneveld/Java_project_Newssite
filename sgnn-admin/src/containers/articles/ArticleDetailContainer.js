@@ -63,7 +63,7 @@ class ArticleDetailContainer extends Component {
     return(
       <div className="article-detail-container">
         <h1>Article Details</h1>
-        <a href={editUrl}>Edit</a>
+        {/* <a href={editUrl}>Edit</a> */}
         <a href="." onClick={this.handleDeleteClick}>Delete</a>
         <a href="/articles">Back</a>
         <div className="article-detail">

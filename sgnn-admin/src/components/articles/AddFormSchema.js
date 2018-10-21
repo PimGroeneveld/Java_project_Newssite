@@ -20,7 +20,7 @@ const AddFormSchema = (props) => {
 
   const schema = {
     type: "object",
-    // required: ["headline", "summary", "fullStory", "region", "categories", "journalists"],
+    required: ["headline", "summary", "fullStory", "region", "categories", "journalists"],
     properties: {
       headline: {
         type: "string",
