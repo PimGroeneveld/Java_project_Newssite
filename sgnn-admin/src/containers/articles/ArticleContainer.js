@@ -21,8 +21,9 @@ class ArticleContainer extends Component {
     fetch(this.url)
     .then(response => response.json())
     .then((data) => {
-
       this.setState({articles: data._embedded.articles});
+  })
+}
 
   handleRowClick(id){
     this.setState({redirect: true, articleId: id});

@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-jsonschema-form';
 
 
-const FormSchema = (props) => {
+const AddFormSchema = (props) => {
 
   if(!props.journalists || !props.categories || !props.regions) return null;
 
@@ -14,20 +14,13 @@ const FormSchema = (props) => {
 
   const categoriesNames =props.categories.map((category) => category.name);
 
-<<<<<<< HEAD
   const regionLinks = props.regions.map((region) => region._links.self.href);
-=======
-  const regionIds = props.regions.map((region) => region.id);
->>>>>>> origin
 
   const regionNames = props.regions.map((region) => region.regionName);
 
-  const today = new Date();
-  console.log(today);
-
   const schema = {
     type: "object",
-    required: ["headline", "summary", "fullStory", "region"],
+    required: ["headline", "summary", "fullStory", "region", "categories", "journalists"],
     properties: {
       headline: {
         type: "string",
@@ -57,15 +50,13 @@ const FormSchema = (props) => {
         items: {
           type: "string",
           enum: categoriesLinks,
-          enumNames: categoriesNames,
-          default: "GENERAL"
+          enumNames: categoriesNames
         },
         uniqueItems: true
       },
       region: {
         type: "string",
         title: "Region",
-<<<<<<< HEAD
         enum: regionLinks,
         enumNames: regionNames
       },
@@ -74,28 +65,6 @@ const FormSchema = (props) => {
         title: "Image",
         format: "data-url"
       }
-      // publishDate: {
-      //   type: "string",
-      //   format: "date-time",
-      //   default: today
-      // }
-=======
-        enum: regionIds,
-        enumNames: regionNames,
-        default: "-Region-"
-        },
-        image: {
-          type: "string",
-          title: "Image",
-          format: "data-url"
-        },
-        publishDate: {
-          type: "string",
-          format: "date-time",
-          default: today
-        },
-      done: {type: "boolean", title: "Done?", default: false}
->>>>>>> origin
     }
   };
 
@@ -108,20 +77,24 @@ const FormSchema = (props) => {
       "ui:widget": "textarea",
       "ui:options": {rows: 20}
     },
-    journalists: {
-      "ui:help": "Can select 1 or more"
+    region: {
+      "ui:placeholder": "Choose an option",
+      "ui:emptyValue": regionLinks[4]
     },
     categories: {
-        "ui:help": "Can select 1 or more"
-      },
-    publishDate: {
-      "ui:widget": "hidden"
+      "ui:emptyValue": regionLinks[0]
     }
   }
   //const log = (type) => console.log.bind(console, type);
 
   function handleFormSubmit(event) {
-    props.onNewArticleFormSubmit(event);
+    if (props.article) {
+      props.onEditArticleFormSubmit(event);
+    }
+    else{
+      props.onNewArticleFormSubmit(event);
+    }
+
   }
 
   function handleFormCancel(event) {
@@ -131,7 +104,7 @@ const FormSchema = (props) => {
   return(
 
     <Form schema={schema} uiSchema={uiSchema}
-      onSubmit={handleFormSubmit}>
+      onSubmit={handleFormSubmit} formData={props.formData}>
       <div>
         <button type="submit">Submit</button>
         <button type="button" onClick={handleFormCancel}>Cancel</button>
@@ -141,4 +114,4 @@ const FormSchema = (props) => {
 }
 
 
-export default FormSchema;
+export default AddFormSchema;
