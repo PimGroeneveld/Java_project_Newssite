@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import {Link, Redirect} from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import JournalistSingleDetail from '../../components/journalists/JournalistSingleDetail';
-import DeleteJournalistButton from "../../components/journalists/DeleteJournalistButton.js";
 import EditJournalistButton from "../../components/journalists/EditJournalistButton.js";
 import BackToAllButton from "../../components/journalists/BackToAllButton.js";
-import JournalistDeleteContainer from "./JournalistDeleteContainer.js";
 
 class JournalistDetailContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {journalist: null}
+    this.state = {
+      journalist: null
+    }
     this.url = props.url;
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
     console.log("detail props", props);
   }
 
@@ -17,7 +21,32 @@ class JournalistDetailContainer extends Component {
     fetch(this.url).then((res) => res.json())
     .then((data) => {
       this.setState({journalist: data})
-      // console.log("this.state.journalist", this.state.journalist);
+    })
+  }
+
+  handleDeleteClick(event){
+    event.preventDefault();
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to remove this journalist?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            fetch(this.url,{
+              method: "DELETE",
+              headers: {'Content-Type': 'application/json'},
+            })
+            .then( () => {
+              window.location = '/journalists';
+            })
+          }
+        },
+        {
+          label: 'No',
+          onClick: () => <Redirect to={this.url}/>
+        }
+      ]
     })
   }
 
@@ -28,7 +57,7 @@ class JournalistDetailContainer extends Component {
         <h1>Journalist info:</h1>
         <EditJournalistButton journalistUrl = { this.url }/>
         <JournalistSingleDetail journalist = { this.state.journalist } />
-        <JournalistDeleteContainer />
+        <a href="." onClick={this.handleDeleteClick}>Delete</a>
         <br/>
         <BackToAllButton />
       </div>
