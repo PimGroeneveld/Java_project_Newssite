@@ -9,7 +9,8 @@ class ArticleFormContainer extends Component {
     super(props);
     this.state = {
       journalists: [],
-      categories: []
+      categories: [],
+      regions: []
     }
   }
 
@@ -25,6 +26,12 @@ class ArticleFormContainer extends Component {
     .then((data) => {
       console.log(data);
       this.setState({categories: data._embedded.categories})
+    })
+
+    fetch('/regions')
+    .then(response => response.json())
+    .then((data) => {
+      this.setState({regions: data._embedded.regions})
     })
   }
 
@@ -44,7 +51,7 @@ class ArticleFormContainer extends Component {
     return(
       <div className="article-form-container">
         <h2>Add new article</h2>
-        <FormSchema journalists={this.state.journalists} categories={this.state.categories} />
+        {/* <FormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions}/> */}
         {/* <form action="">
           <label htmlFor="headline">Headline : </label>
           <input type="text" name="headline" required/>

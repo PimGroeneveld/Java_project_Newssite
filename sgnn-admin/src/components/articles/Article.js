@@ -13,6 +13,7 @@ const Article = (props) => {
           <td className="article-date-element">{props.article.publishDate}</td>
           <td className="article-region-element">{props.article.region.regionName}</td>
       </tr>
+
   )
 
 }

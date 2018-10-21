@@ -21,6 +21,7 @@ class ArticleContainer extends Component {
     fetch(this.url)
     .then(response => response.json())
     .then((data) => {
+      console.log("mounted",data);
       this.setState({articles: data});
     })
   }
