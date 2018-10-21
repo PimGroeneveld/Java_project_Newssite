@@ -56,7 +56,7 @@ class App extends Component {
               const url = "/journalists/" + props.match.params.id;
               return <JournalistEditFormContainer url={url} jId={props.match.params.id}/>
             }} />
-            {/*Show one*/}
+            {/*Show one, also route for delete*/}
             <Route exact path="/journalists/:id" render={(props) => {
               const url = "/journalists/" + props.match.params.id;
               return <JournalistDetailContainer url={url}/>
