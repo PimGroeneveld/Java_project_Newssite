@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
 class JournalistEditFormContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {journalistInfo: null}
     this.url = props.url;
     this.jId = props.jId;
-    console.log("props", props);
+    console.log("props edit", props);
   }
 
   componentDidMount(){
