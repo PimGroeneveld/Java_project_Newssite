@@ -21,7 +21,7 @@ class ArticleContainer extends Component {
     fetch(this.url)
     .then(response => response.json())
     .then((data) => {
-      this.setState({articles: data});
+      this.setState({articles: data._embedded.articles});
     })
   }
 

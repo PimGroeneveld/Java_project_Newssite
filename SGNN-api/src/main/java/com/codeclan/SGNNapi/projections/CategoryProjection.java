@@ -10,7 +10,7 @@ import java.util.List;
 @Projection(name = "categoryProjection", types = Category.class)
 public interface CategoryProjection {
     Long getId();
-    CategoryName getCategoryName();
+    CategoryName getName();
     List<Article> getArticles();
 
 }
