@@ -3,6 +3,7 @@ import React from 'react';
 const JournalistSingleDetail = props => {
   if(!props.journalist) return null;
   const url = "/journalists/" + props.journalist.id
+  console.log("single detail props.journalist", props.journalist);
   return(
     <div className = "journalist-detail">
       <a href = {url}>
