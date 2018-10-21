@@ -13,7 +13,7 @@ import JournalistContainer from './containers/journalists/JournalistContainer';
 import JournalistFormContainer from './containers/journalists/JournalistFormContainer';
 import JournalistDetailContainer from './containers/journalists/JournalistDetailContainer';
 import JournalistEditFormContainer from './containers/journalists/JournalistEditFormContainer';
-import JournalistDeleteContainer from './containers/journalists/JournalistDeleteContainer';
+// import JournalistDeleteContainer from './containers/journalists/JournalistDeleteContainer';
 
 class App extends Component {
   render() {
@@ -56,18 +56,11 @@ class App extends Component {
               const url = "/journalists/" + props.match.params.id;
               return <JournalistEditFormContainer url={url} jId={props.match.params.id}/>
             }} />
-            {/*Show one*/}
+            {/*Show one, also route for delete*/}
             <Route exact path="/journalists/:id" render={(props) => {
               const url = "/journalists/" + props.match.params.id;
               return <JournalistDetailContainer url={url}/>
               }} />
-              {/* (Pim) I think the issue is somewhere here with the route. Its not passing down props to JournalistDeleteContainer, since it hits /:id for the detailcontainer and then stops. Tried variations of exact path/path and didnt work*/}
-              {/*Delete */}
-          <Route path="/journalists/:id" render={(props) => {
-            const url = "/journalists/" + props.match.params.id;
-            return <JournalistDeleteContainer url={url}
-              jId={props.match.params.id}/>
-            }} />
           </Switch>
           <Footer />
         </React.Fragment>

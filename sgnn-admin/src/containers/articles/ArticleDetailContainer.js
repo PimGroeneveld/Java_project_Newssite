@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import EditArticleButton from "../../components/articles/EditArticleButton";
 
 class ArticleDetailContainer extends Component {
 
@@ -64,6 +65,7 @@ class ArticleDetailContainer extends Component {
       <div className="article-detail-container">
         <h1>Article Details</h1>
         {/* <a href={editUrl}>Edit</a> */}
+        <EditArticleButton articleUrl = { this.url } />
         <a href="." onClick={this.handleDeleteClick}>Delete</a>
         <a href="/articles">Back</a>
         <div className="article-detail">
