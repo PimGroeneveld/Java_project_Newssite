@@ -89,6 +89,9 @@ public class DataLoader implements ApplicationRunner {
         Region region4 = new Region(RegionName.WALES);
         regionRepository.save(region4);
 
+        Region region5 = new Region(RegionName.OTHERS);
+        regionRepository.save(region5);
+
         // Article 1
         String headline1 = "Mundell concern over Brexit fish policy";
         String summary1 = "Scottish Secretary David Mundell has raised concerns with the prime minister over the timing of the UK's departure from the Common Fisheries Policy.";

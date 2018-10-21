@@ -12,9 +12,11 @@ class ArticleFormContainer extends Component {
       categories: [],
       regions: []
     }
+    this.handleNewArticleFormSubmit = this.handleNewArticleFormSubmit.bind(this);
   }
 
   componentDidMount(){
+
     fetch('/journalists')
     .then(response => response.json())
     .then((data) => {
@@ -24,34 +26,66 @@ class ArticleFormContainer extends Component {
     fetch('/categories')
     .then(response => response.json())
     .then((data) => {
-      console.log(data);
       this.setState({categories: data._embedded.categories})
     })
 
     fetch('/regions')
     .then(response => response.json())
     .then((data) => {
+<<<<<<< HEAD
+      console.log(data);
+      this.setState({regions: data._embedded.regions});
+=======
       this.setState({regions: data._embedded.regions})
+>>>>>>> origin
+    })
+  }
+
+  handleNewArticleFormSubmit(event) {
+    console.log(event.formData);
+    const categories = event.formData.categories;
+    const generalCategoryLink = "http://localhost:3000/categories/1";
+    if(categories){
+      if(!categories.includes(generalCategoryLink)){
+        categories.push(generalCategoryLink);
+      }
+    }
+    else {
+      categories.push(generalCategoryLink);
+    }
+
+
+    const today = new Date();
+
+    fetch('/articles', {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "headline": event.formData.headline,
+        "summary": event.formData.summary,
+        "fullStory": event.formData.fullStory,
+        "publishDate": today,
+        "imageUrl": event.formData.imageUrl,
+        "region": event.formData.region,
+        "categories": event.formData.categories,
+        "journalists": event.formData.journalists
+      })
+    }).then(() => {
+      window.location = '/articles';
     })
   }
 
 
   render(){
 
-
-
-    // const journalistsOptions = this.state.journalists.map((journalist, index) => {
-    //   return <option key={index} value={journalist.id}>{journalist.name}</option>
-    // });
-    //
-    // const categoriesOptions = this.state.categories.map((category, index) => {
-    //   return <option key={index} value={category.id}>{category.name}</option>
-    // });
-
     return(
       <div className="article-form-container">
         <h2>Add new article</h2>
+<<<<<<< HEAD
+        <FormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} onNewArticleFormSubmit={this.handleNewArticleFormSubmit}/>
+=======
         {/* <FormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions}/> */}
+>>>>>>> origin
         {/* <form action="">
           <label htmlFor="headline">Headline : </label>
           <input type="text" name="headline" required/>
