@@ -33,12 +33,12 @@ class App extends Component {
             <Route exact path= "/articles/new" component={ArticleAddFormContainer}/>
 
             <Route exact path = "/articles/:id/edit" render={(props) => {
-              const url = "/articles/"+props.match.params.id;
+              const url = "/articles/"+props.match.params.id+"?projection=articleProjection";
               return <ArticleEditFormContainer url={url}/>
             }} />
 
             <Route exact path="/articles/:id" render={(props) => {
-              const url = "/articles/"+props.match.params.id;
+              const url = "/articles/"+props.match.params.id+"?projection=articleProjection";
               return <ArticleDetailContainer url={url}/>
             }
             }/>

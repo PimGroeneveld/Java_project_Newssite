@@ -3,8 +3,8 @@ import Form from 'react-jsonschema-form';
 
 
 const AddFormSchema = (props) => {
-
-  if(!props.journalists || !props.categories || !props.regions) return null;
+  console.log(props);
+  if(props.journalists.length === 0 || props.categories.length === 0 || props.regions.length === 0 ) return null;
 
   const journalistLinks = props.journalists.map((journalist) => journalist._links.self.href);
 
@@ -85,10 +85,70 @@ const AddFormSchema = (props) => {
       "ui:emptyValue": regionLinks[0]
     }
   }
-  //const log = (type) => console.log.bind(console, type);
+
+
+  const getRegionLinkById = (regionId) => {
+    const region = props.regions.find((region) => {
+      return region.id === regionId
+    })
+    console.log(region);
+    return region._links.self.href
+  }
+
+  const getCategoriesLinksByIds = (categories) => {
+
+    var categoriesLinks = [];
+    for (var i = 0; i < props.categories.length; i++) {
+      for (var j = 0; j < categories.length; j++) {
+        if (props.categories[i].id === categories[j].id) {
+          categoriesLinks.push(props.categories[i]._links.self.href)
+        }
+      }
+    }
+    return categoriesLinks;
+  }
+
+  const getJournalistByIds = (journalists) => {
+
+    var journalistsLinks = [];
+    for (var i = 0; i < props.journalists.length; i++) {
+      for (var j = 0; j < journalists.length; j++) {
+        if (props.journalists[i].id === journalists[j].id) {
+          journalistsLinks.push(props.journalists[i]._links.self.href)
+        }
+      }
+    }
+    return journalistsLinks;
+  }
+
+
+    var newFormData = null;
+
+    if(props.formData){
+      newFormData = {
+        headline: props.formData.headline,
+        summary: props.formData.summary,
+        fullStory: props.formData.fullStory,
+        imageUrl: props.formData.imageUrl,
+        region: getRegionLinkById(props.formData.region.id),
+        categories: getCategoriesLinksByIds(props.formData.categories),
+        journalists: getJournalistByIds(props.formData.journalists)
+      }
+    }
+    else {
+      newFormData = null;
+    }
+
+  function handleFormInputChange(event){
+    console.log("change::", event);
+    newFormData = event.formData;
+  }
+
+
 
   function handleFormSubmit(event) {
     if (props.article) {
+      newFormData = event.formData;
       props.onEditArticleFormSubmit(event);
     }
     else{
@@ -104,7 +164,7 @@ const AddFormSchema = (props) => {
   return(
 
     <Form schema={schema} uiSchema={uiSchema}
-      onSubmit={handleFormSubmit} formData={props.formData}>
+      onSubmit={handleFormSubmit} formData={newFormData} onChange={handleFormInputChange}>
       <div>
         <button type="submit">Submit</button>
         <button type="button" onClick={handleFormCancel}>Cancel</button>

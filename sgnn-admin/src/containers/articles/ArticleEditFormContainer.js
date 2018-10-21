@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import AddFormSchema from '../../components/articles/AddFormSchema.js';
 
 class ArticleEditFormContainer extends Component {
@@ -44,22 +45,12 @@ class ArticleEditFormContainer extends Component {
   }
 
   handleEditFormSubmit(event){
-    console.log("NEW DATA",event.formData);
-    console.log("OLD DATA",this.state.formData);
-    const categories = event.formData.categories;
-    const generalCategoryLink = "http://localhost:3000/categories/1";
-    if(categories){
-      if(!categories.includes(generalCategoryLink)){
-        categories.push(generalCategoryLink);
-      }
-    }
-    else {
-      categories.push(generalCategoryLink);
-    }
+
+    console.log(event.formData.region);
 
     const today = new Date();
-
-    fetch(this.url, {
+    const updateUrl="/articles/"+this.state.article.id;
+    fetch(updateUrl, {
       method: "PUT",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -72,9 +63,12 @@ class ArticleEditFormContainer extends Component {
         "categories": event.formData.categories,
         "journalists": event.formData.journalists
       })
-    }).then(() => {
-      window.location = this.url;
     })
+    .then(response => response.json())
+    .then(() => {
+      window.location = updateUrl;
+    })
+
   }
 
   render(){
@@ -82,6 +76,7 @@ class ArticleEditFormContainer extends Component {
       <div>
         <h1>Edit Article Details</h1>
       <AddFormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} article={this.state.article} onEditArticleFormSubmit = {this.handleEditFormSubmit} formData={this.state.formData}/>
+
       </div>
     )
   }
