@@ -5,7 +5,8 @@ import Footer from './Footer';
 
 import ArticleContainer from './containers/articles/ArticleContainer';
 import ArticleDetailContainer from './containers/articles/ArticleDetailContainer.js';
-import ArticleFormContainer from './containers/articles/ArticleFormContainer.js';
+import ArticleAddFormContainer from './containers/articles/ArticleAddFormContainer.js';
+import ArticleEditFormContainer from './containers/articles/ArticleEditFormContainer.js';
 
 import HomeContainer from './containers/HomeContainer';
 import JournalistContainer from './containers/journalists/JournalistContainer';
@@ -28,7 +29,12 @@ class App extends Component {
               return <ArticleContainer url={url}/>
             }} />
 
-            <Route exact path= "/articles/new" component={ArticleFormContainer}/>
+            <Route exact path= "/articles/new" component={ArticleAddFormContainer}/>
+
+            <Route exact path = "/articles/:id/edit" render={(props) => {
+              const url = "/articles/"+props.match.params.id;
+              return <ArticleEditFormContainer url={url}/>
+            }} />
 
             <Route exact path="/articles/:id" render={(props) => {
               const url = "/articles/"+props.match.params.id;

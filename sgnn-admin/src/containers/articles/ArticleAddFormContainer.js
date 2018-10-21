@@ -1,16 +1,15 @@
 import React , {Component} from 'react';
-import Form from 'react-jsonschema-form';
+import AddFormSchema from '../../components/articles/AddFormSchema.js';
 
-import FormSchema from '../../components/articles/FormSchema.js';
-
-class ArticleFormContainer extends Component {
+class ArticleAddFormContainer extends Component {
 
   constructor(props){
     super(props);
     this.state = {
       journalists: [],
       categories: [],
-      regions: []
+      regions: [],
+      formData: null
     }
     this.handleNewArticleFormSubmit = this.handleNewArticleFormSubmit.bind(this);
   }
@@ -37,7 +36,6 @@ class ArticleFormContainer extends Component {
   }
 
   handleNewArticleFormSubmit(event) {
-    console.log(event.formData);
     const categories = event.formData.categories;
     const generalCategoryLink = "http://localhost:3000/categories/1";
     if(categories){
@@ -77,7 +75,7 @@ class ArticleFormContainer extends Component {
       <div className="article-form-container">
         <h2>Add new article</h2>
 
-        <FormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} onNewArticleFormSubmit={this.handleNewArticleFormSubmit}/>
+        <AddFormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} onNewArticleFormSubmit={this.handleNewArticleFormSubmit} formData={this.state.formData}/>
 
         {/* <form action="">
           <label htmlFor="headline">Headline : </label>
@@ -120,4 +118,4 @@ class ArticleFormContainer extends Component {
 
 }
 
-export default ArticleFormContainer;
+export default ArticleAddFormContainer;
