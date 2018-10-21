@@ -14,6 +14,10 @@ h1 {
   font-size: 40px;
 }
 
+a:hover {
+  color: #004f99;
+}
+
 header {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -115,9 +119,6 @@ header ul li a {
   justify-content: space-around;
 }
 
-.main-pic {
-}
-
 .main-text {
   flex: 1;
   padding: 0 30px;
@@ -165,6 +166,10 @@ header ul li a {
 .article-preview a {
   text-decoration: none;
   color: #000000;
+}
+
+.article-preview a h3:hover {
+  color: #2272bd;
 }
 
 .preview-date {
