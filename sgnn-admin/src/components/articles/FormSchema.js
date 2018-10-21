@@ -14,7 +14,11 @@ const FormSchema = (props) => {
 
   const categoriesNames =props.categories.map((category) => category.name);
 
+<<<<<<< HEAD
   const regionLinks = props.regions.map((region) => region._links.self.href);
+=======
+  const regionIds = props.regions.map((region) => region.id);
+>>>>>>> origin
 
   const regionNames = props.regions.map((region) => region.regionName);
 
@@ -61,6 +65,7 @@ const FormSchema = (props) => {
       region: {
         type: "string",
         title: "Region",
+<<<<<<< HEAD
         enum: regionLinks,
         enumNames: regionNames
       },
@@ -74,6 +79,23 @@ const FormSchema = (props) => {
       //   format: "date-time",
       //   default: today
       // }
+=======
+        enum: regionIds,
+        enumNames: regionNames,
+        default: "-Region-"
+        },
+        image: {
+          type: "string",
+          title: "Image",
+          format: "data-url"
+        },
+        publishDate: {
+          type: "string",
+          format: "date-time",
+          default: today
+        },
+      done: {type: "boolean", title: "Done?", default: false}
+>>>>>>> origin
     }
   };
 

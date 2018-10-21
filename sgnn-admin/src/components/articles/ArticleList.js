@@ -3,6 +3,8 @@ import Article from './Article.js';
 
 const ArticleList = (props) => {
 
+  if(!props.articles) return null;
+  
   const articlesOptions = props.articles.map((article, index) => {
     console.log("in");
     return (
@@ -12,9 +14,6 @@ const ArticleList = (props) => {
 
   return(
     <div className="article-list">
-      {/* <ol className="articles">
-        {articlesOptions}
-      </ol> */}
       <table id="articles-table">
         <thead>
           <tr>

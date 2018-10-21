@@ -5,26 +5,37 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: []
+      categories: [],
+      regions: []
+    }
+  }
+
+  toggleRegionBar(event) {
+    const regionNavbar = document.querySelector(".navbar-bottom ul");
+    if(regionNavbar.style.display === "none") {
+      regionNavbar.style.display = "block";
+    } else {
+      regionNavbar.style.display = "none";
     }
   }
 
   componentDidMount() {
-    // A list of categories are found by retrieveing all articles then extracting them, might
-    // be an idea to add a category endpoint to the api.
     let categories = [];
+    let regions = [];
     fetch("/articles")
       .then(res => res.json())
       .then(data => { 
-        categories = data.map(article => {
-          return article.categories;
-        });
-        categories = categories
+        categories = data
+                      .map(article => article.categories)
                       .flat()
-                      // Filters out unique categories
                       .filter((o, i, a) => i === a.findIndex((c) => (c.name === o.name)))
+        regions = data
+                    .map(article => article.region)
+                    .filter((o, i, a) => i === a.findIndex((c) => (c.regionName === o.regionName)))
+
         this.setState({
-          categories: categories
+          categories: categories,
+          regions: regions
         })  
       })
   }
@@ -42,7 +53,7 @@ class NavBar extends Component {
       <header>
         <ul>
           <li>
-              <Link to = "/">UK</Link>
+              <Link to = "/" onClick = { this.toggleRegionBar }>UK</Link>
           </li>
           { navCategoryLinks }
         </ul>

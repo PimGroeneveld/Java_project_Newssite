@@ -10,10 +10,6 @@ p {
   text-align: justify;
 }
 
-h1, h2, h3, h4, h5 {
-  
-}
-
 h1 {
   font-size: 40px;
 }
@@ -23,7 +19,7 @@ header {
   font-size: 14px;
   background-color: #cc0000; 
   height: 70px;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 header ul {
@@ -59,17 +55,17 @@ header ul li a {
   display: inline;
 }
 
-.logo a {
-  margin-left: 10px;
-  text-decoration: none;
-}
-
 .navbar-top p {
   padding: 0;
   margin: 0;
   display: inline;
   color: #000000;
   letter-spacing: 5px;
+}
+
+.logo a {
+  margin-left: 10px;
+  text-decoration: none;
 }
 
 .logo {
@@ -85,6 +81,29 @@ header ul li a {
   margin-right: 5px; 
 }
 
+.navbar-bottom {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.navbar-bottom ul {
+  display: none;
+  padding: 0;
+  margin: 0 30px 0 0;
+  list-style: none;
+}
+
+.navbar-bottom li {
+  display: inline;
+  padding: 0 20px;
+}
+
+.navbar-bottom li a {
+  text-decoration: none;
+  color: #000000;
+}
+
 .news-feed-container {
   padding: 30px;
 }
@@ -92,7 +111,7 @@ header ul li a {
 .main-article {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 30px 20px 30px; 
+  padding: 30px 30px 20px 30px; 
   justify-content: space-around;
 }
 
@@ -139,9 +158,18 @@ header ul li a {
   width: 100%;
 }
 
+.article-preview {
+  font-size: 16px;
+}
+
 .article-preview a {
   text-decoration: none;
   color: #000000;
+}
+
+.preview-date {
+  font-size: 14px;
+  color: #cccccc;
 }
 
 .footer {

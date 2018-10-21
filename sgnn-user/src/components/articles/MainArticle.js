@@ -1,4 +1,5 @@
 import React from 'react';
+import prettyDate from '../../helpers/Date';
 
 const MainArticle = props => {
   if(!props.article) { return null }
@@ -15,6 +16,7 @@ const MainArticle = props => {
       </div>
       <div className = "main-text">
         <h1>{ props.article.headline }</h1>
+        <p className = "preview-date">{ prettyDate(props.article.publishDate) }</p>
         <p>{ props.article.summary }</p>
       </div>
     </div>
