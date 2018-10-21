@@ -4,7 +4,7 @@ import Form from 'react-jsonschema-form';
 
 const AddFormSchema = (props) => {
 
-  if(!props.journalists || !props.categories || !props.regions || !props.formData) return null;
+  if(props.journalists.length === 0 || props.categories.length === 0 || props.regions.length === 0 ) return null;
 
   const journalistLinks = props.journalists.map((journalist) => journalist._links.self.href);
 
@@ -88,7 +88,6 @@ const AddFormSchema = (props) => {
 
 
   const getRegionLinkById = (regionId) => {
-    console.log(props.regions);
     const region = props.regions.find((region) => {
       return region.id === regionId
     })
@@ -96,30 +95,52 @@ const AddFormSchema = (props) => {
   }
 
   const getCategoriesLinksByIds = (categories) => {
-console.log(categories);
-    // var categoryLinks = [];
-    //
-    // for (var i = 0; i < props.categories.length; i++) {
-    //   for (var j = 0; j < categories.length; j++) {
-    //     if (props.categories[i].id === categories[j].id) {
-    //       categoryLinks.push(props.categories[i]._links.self.href)
-    //     }
-    //   }
-    // }
-    // return categoryLinks;
+
+    var categoriesLinks = [];
+    for (var i = 0; i < props.categories.length; i++) {
+      for (var j = 0; j < categories.length; j++) {
+        if (props.categories[i].id === categories[j].id) {
+          categoriesLinks.push(props.categories[i]._links.self.href)
+        }
+      }
+    }
+    return categoriesLinks;
+  }
+
+  const getJournalistByIds = (journalists) => {
+
+    var journalistsLinks = [];
+    for (var i = 0; i < props.journalists.length; i++) {
+      for (var j = 0; j < journalists.length; j++) {
+        if (props.journalists[i].id === journalists[j].id) {
+          console.log(true);
+          console.log(props.journalists[i]);
+          journalistsLinks.push(props.journalists[i]._links.self.href)
+        }
+      }
+    }
+    return journalistsLinks;
   }
 
 
-  console.log(props.formData);
-    const newFormData = {
+    var newFormData = null;
 
-      headline: props.formData.headline,
-      summary: props.formData.summary,
-      fullStory: props.formData.fullStory,
-      imageUrl: props.formData.imageUrl,
-      region: getRegionLinkById(props.formData._embedded.region.id)
-      // categories: getCategoriesLinksByIds(props.formData._embedded.categories)
+    if(props.formData){
+      newFormData = {
+        headline: props.formData.headline,
+        summary: props.formData.summary,
+        fullStory: props.formData.fullStory,
+        imageUrl: props.formData.imageUrl,
+        region: getRegionLinkById(props.formData._embedded.region.id),
+        categories: getCategoriesLinksByIds(props.formData._embedded.categories),
+        journalists: getJournalistByIds(props.formData._embedded.journalists)
+      }
     }
+    else {
+      newFormData = null;
+    }
+
+
 
 
 

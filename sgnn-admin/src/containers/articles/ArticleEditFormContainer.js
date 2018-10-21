@@ -83,6 +83,7 @@ class ArticleEditFormContainer extends Component {
       <div>
         <h1>Edit Article Details</h1>
       <AddFormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} article={this.state.article} onEditArticleFormSubmit = {this.handleEditFormSubmit} formData={this.state.formData}/>
+      
       </div>
     )
   }

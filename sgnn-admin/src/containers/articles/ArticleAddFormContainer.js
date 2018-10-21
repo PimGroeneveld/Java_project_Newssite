@@ -8,8 +8,7 @@ class ArticleAddFormContainer extends Component {
     this.state = {
       journalists: [],
       categories: [],
-      regions: [],
-      formData: null
+      regions: []
     }
     this.handleNewArticleFormSubmit = this.handleNewArticleFormSubmit.bind(this);
   }
@@ -33,6 +32,8 @@ class ArticleAddFormContainer extends Component {
     .then((data) => {
       this.setState({regions: data._embedded.regions});
     })
+
+
   }
 
   handleNewArticleFormSubmit(event) {
@@ -46,7 +47,6 @@ class ArticleAddFormContainer extends Component {
     else {
       categories.push(generalCategoryLink);
     }
-
 
     const today = new Date();
 
@@ -75,7 +75,7 @@ class ArticleAddFormContainer extends Component {
       <div className="article-form-container">
         <h2>Add new article</h2>
 
-        <AddFormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} onNewArticleFormSubmit={this.handleNewArticleFormSubmit} formData={this.state.formData}/>
+        <AddFormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} onNewArticleFormSubmit={this.handleNewArticleFormSubmit} />
 
         {/* <form action="">
           <label htmlFor="headline">Headline : </label>
