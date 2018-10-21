@@ -82,8 +82,8 @@ header ul li a {
 }
 
 .navbar-bottom ul {
-  padding: 0;
-  margin: 0;
+  padding: 0 0 30px 0;;
+  margin: 0 30px 0 0;
   list-style: none;
 }
 
@@ -104,7 +104,7 @@ header ul li a {
 .main-article {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 30px 20px 30px; 
+  padding: 0px 30px 20px 30px; 
   justify-content: space-around;
 }
 
@@ -151,9 +151,18 @@ header ul li a {
   width: 100%;
 }
 
+.article-preview {
+  font-size: 16px;
+}
+
 .article-preview a {
   text-decoration: none;
   color: #000000;
+}
+
+.preview-date {
+  font-size: 14px;
+  color: #cccccc;
 }
 
 .footer {
