@@ -24,11 +24,20 @@ class NavBarBottom extends Component {
       })
   }
 
+  formatRegionName(name) {
+    let nameArray = name.toLowerCase().split("_");    
+    nameArray = nameArray.map(word => {
+      return (word.charAt(0).toUpperCase() + word.slice(1));
+    })
+
+    return nameArray.join(" ");
+  }
+
   render() {
     const navRegionLinks = this.state.regions.map(region => {
       return(
         <li key = { region.id }>
-            <Link to = { "/articles/region/" + region.regionName }>{ region.regionName.toLowerCase() }</Link>
+            <Link to = { "/articles/region/" + region.regionName }>{ this.formatRegionName(region.regionName) }</Link>
         </li>
       )
     })
