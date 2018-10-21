@@ -10,6 +10,15 @@ class NavBar extends Component {
     }
   }
 
+  toggleRegionBar(event) {
+    const regionNavbar = document.querySelector(".navbar-bottom ul");
+    if(regionNavbar.style.display === "none") {
+      regionNavbar.style.display = "block";
+    } else {
+      regionNavbar.style.display = "none";
+    }
+  }
+
   componentDidMount() {
     let categories = [];
     let regions = [];
@@ -44,7 +53,7 @@ class NavBar extends Component {
       <header>
         <ul>
           <li>
-              <Link to = "/">UK</Link>
+              <Link to = "/" onClick = { this.toggleRegionBar }>UK</Link>
           </li>
           { navCategoryLinks }
         </ul>
