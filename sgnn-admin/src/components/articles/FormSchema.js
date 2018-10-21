@@ -14,6 +14,10 @@ const FormSchema = (props) => {
 
   const categoriesNames =props.categories.map((category) => category.name);
 
+  const regionIds = props.regions.map((region) => region.id);
+
+  const regionNames = props.regions.map((region) => region.regionName);
+
   const today = new Date();
   console.log(today);
 
@@ -57,8 +61,8 @@ const FormSchema = (props) => {
       regions: {
         type: "number",
         title: "Region",
-        enum: [1, 2, 3, 4, 5],
-        enumNames: ["Scotland", "England", "Wales", "Northern Ireland", "Others"],
+        enum: regionIds,
+        enumNames: regionNames,
         default: "-Region-"
         },
         image: {

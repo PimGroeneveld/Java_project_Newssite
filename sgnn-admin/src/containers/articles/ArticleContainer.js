@@ -21,6 +21,7 @@ class ArticleContainer extends Component {
     fetch(this.url)
     .then(response => response.json())
     .then((data) => {
+      console.log("mounted",data);
       this.setState({articles: data});
     })
   }
@@ -38,7 +39,6 @@ class ArticleContainer extends Component {
   }
 
   render() {
-    console.log("rendered");
     return(
       <div className="articles-container">
         <h1>Articles</h1>
