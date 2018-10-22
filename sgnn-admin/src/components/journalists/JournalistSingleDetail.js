@@ -6,12 +6,17 @@ const JournalistSingleDetail = props => {
   return(
     <div className = "journalist-detail">
       <a href = {url}>
-        <img src = { process.env.PUBLIC_URL + '/images/anonymous.jpg' } alt = "journo"></img>
+        <img src = { process.env.PUBLIC_URL + '/images/anonymous.jpg' } alt = "journalist"></img>
       </a>
-      <p>Name: { props.journalist.name }</p>
-      <p>City of residence: { props.journalist.cityOfResidence }</p>
-      <p>Email: { props.journalist.email}</p>
-      <p>Phone number: { props.journalist.phone}</p>
+      <div className="single-detail-container">
+        <h3 >Name: &nbsp; &nbsp; &nbsp;<p className="single-content">{ props.journalist.name }</p></h3>
+
+        <h3 >City of residence : <p className="single-content"> { props.journalist.cityOfResidence }</p></h3>
+
+        <h3 >Email : <p className="single-content"> { props.journalist.email}</p></h3>
+
+        <h3 >Phone number : <p className="single-content"> { props.journalist.phone}</p></h3>
+      </div>
     </div>
   )
 }
