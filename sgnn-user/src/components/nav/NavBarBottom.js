@@ -36,8 +36,10 @@ class NavBarBottom extends Component {
   render() {
     const navRegionLinks = this.state.regions.map(region => {
       return(
-        <li key = { region.id }>
-            <Link to = { "/articles/region/" + region.regionName }>{ this.formatRegionName(region.regionName) }</Link>
+        <li  key = { Math.random() } >
+            <Link 
+              to = { "/articles/region/" + region.regionName }>{ this.formatRegionName(region.regionName) }
+            </Link>
         </li>
       )
     })
