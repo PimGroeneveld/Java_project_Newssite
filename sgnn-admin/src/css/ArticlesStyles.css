@@ -204,3 +204,11 @@ a{
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
 }
+
+h3 p{
+  display: inline;
+}
+.single-content {
+  font-size: 40px;
+  color: maroon;
+}
