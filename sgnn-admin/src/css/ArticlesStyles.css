@@ -8,12 +8,19 @@ body {
 
 thead {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
+  color: white;
+  background-color: red;
+}
+
+tbody {
+  background-color: seashell;
 }
 
 td {
   border-bottom: 1px solid black;
   border-right: 1px solid black;
+
 }
 
 .article-detail, h1, h2, h3, h4, h5 {

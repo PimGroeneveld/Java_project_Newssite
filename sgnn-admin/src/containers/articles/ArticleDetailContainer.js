@@ -61,7 +61,7 @@ class ArticleDetailContainer extends Component {
     });
 
     const categories = this.state.article.categories.map((category) => {
-      return category.name+" "
+      return category.name+"   "
     });
 
     const editUrl = "/articles/"+this.state.article.id+"/edit";
@@ -83,7 +83,7 @@ class ArticleDetailContainer extends Component {
             <h4>Categories :
               {categories}
             </h4>
-            <h4>Region : {this.state.article.region.regionName}</h4>
+            <h4>Region : {this.state.article.region.regionName.split('_').join(' ')}</h4>
           </div>
           <div className="article-image-wrapper">
             <img src={this.state.article.imageUrl} alt="ArticleImage" className="article-image"/>
