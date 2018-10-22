@@ -84,12 +84,12 @@ td {
 }
 .article-date-element {
   padding-left: 10px;
-  width: 150px;
+  width: 140px;
   text-align: center;
 }
 .article-region-element {
   padding-left: 10px;
-  width: 100px;
+  width: 120px;
   text-align: center;
 }
 
@@ -157,6 +157,12 @@ a{
   margin-top: 100px;
   height: 50px;
   background-color: #444444;
+}
+
+.footer p {
+  padding-top: 12px;
+  padding-left: 12px;
+  color: white;
 }
 
 .navbar-top {

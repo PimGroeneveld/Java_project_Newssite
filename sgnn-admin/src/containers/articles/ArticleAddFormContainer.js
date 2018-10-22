@@ -53,10 +53,13 @@ class ArticleAddFormContainer extends Component {
     }
 
     const today = new Date();
+    const imageUrl = null;
+    if (event.formData.image) {
+      var splitName = event.formData.image.split("name=")[1];
+      var imageName = splitName.split(";")[0];
+      imageUrl = "/images/"+imageName;
+    }
 
-    var splitName = event.formData.image.split("name=")[1];
-    var imageName = splitName.split(";")[0];
-    const imageUrl = "/images/"+imageName;
 
     fetch('/articles', {
       method: "POST",
