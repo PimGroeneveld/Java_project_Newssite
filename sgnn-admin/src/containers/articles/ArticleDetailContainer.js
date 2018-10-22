@@ -74,7 +74,7 @@ class ArticleDetailContainer extends Component {
         <a href={editUrl}>Edit</a>
 
         {/* <a href={editUrl}>Edit</a> */}
-//         <EditArticleButton articleUrl = { this.url } />
+{/* //         <EditArticleButton articleUrl = { this.url } /> */}
 
         <a href="." onClick={this.handleDeleteClick}>Delete</a>
         <a href="/articles">Back</a>
