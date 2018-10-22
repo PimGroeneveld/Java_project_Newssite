@@ -74,21 +74,27 @@ class ArticleDetailContainer extends Component {
           <a className = "edit-article-button" href={editUrl}>Edit</a>
         </div>
         <div className="article-detail">
-          <h2>{this.state.article.headline}</h2>
-          <h5>Published Date: {formattedDate}</h5>
-          <h5>By :
-            {journalists}
-          </h5>
-          <h5>Categories :
-            {categories}
-          </h5>
-          <h5>Region : {this.state.article.region.regionName}</h5>
-          <img src={this.state.article.imageUrl} alt="ArticleImage" className="article-image"/>
-          <h3>Summary</h3>
-          <p>{this.state.article.summary}</p>
-          <h3>Description</h3>
-          <p>{this.state.article.fullStory}</p>
+          <div className="article-bulletpoints">
+            <h2>{this.state.article.headline}</h2>
+            <h3>Published Date: {formattedDate}</h3>
+            <h4>By :
+              {journalists}
+            </h4>
+            <h4>Categories :
+              {categories}
+            </h4>
+            <h4>Region : {this.state.article.region.regionName}</h4>
+          </div>
+          <div className="article-image-wrapper">
+            <img src={this.state.article.imageUrl} alt="ArticleImage" className="article-image"/>
+          </div>
         </div>
+          <div className="article-text">
+            <h3>Summary</h3>
+            <p>{this.state.article.summary}</p>
+            <h3>Description</h3>
+            <p>{this.state.article.fullStory}</p>
+          </div>
         <div className = "delete-back-button-wrapper" >
           <a className = "delete-article-button" href="." onClick={this.handleDeleteClick}>Delete</a>
           <a className = "back-button" href="/articles">Back</a>
