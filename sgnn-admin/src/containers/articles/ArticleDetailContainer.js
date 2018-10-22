@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 import moment from 'moment';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import EditArticleButton from "../../components/articles/EditArticleButton";
 
 class ArticleDetailContainer extends Component {
 
@@ -69,7 +70,12 @@ class ArticleDetailContainer extends Component {
     return(
       <div className="article-detail-container">
         <h1>Article Details</h1>
+
         <a href={editUrl}>Edit</a>
+
+        {/* <a href={editUrl}>Edit</a> */}
+//         <EditArticleButton articleUrl = { this.url } />
+
         <a href="." onClick={this.handleDeleteClick}>Delete</a>
         <a href="/articles">Back</a>
         <div className="article-detail">
