@@ -57,9 +57,11 @@ class JournalistDetailContainer extends Component {
         <h1>Journalist info:</h1>
         <EditJournalistButton journalistUrl = { this.url }/>
         <JournalistSingleDetail journalist = { this.state.journalist } />
-        <a href="." onClick={this.handleDeleteClick}>Delete</a>
+        <div className = "back-delete-journalist-wrapper">
+        <a className= "delete-journalist-button" href="." onClick={this.handleDeleteClick}>Delete</a>
         <br/>
         <BackToAllButton />
+        </div>
       </div>
     )
   }

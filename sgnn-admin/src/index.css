@@ -46,18 +46,55 @@ h1, h2, h3, h4, h5 {
 
 .journalist-detail img {
   height: 200px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .journalist-detail p {
   text-align: center;
 }
 
-.add-journalist-button {
-  display: block;
+.add-button-wrapper, .edit-journalist-button-wrapper {
   text-align: center;
-  padding: 30px 0;
+}
+
+.back-delete-journalist-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.add-journalist-button, .edit-journalist-button, .show-all-button{
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #008CBA;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.delete-journalist-button {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #f44336;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 .form {
   text-align: center;
+}
+
+.logo {
+  float: left;
 }
