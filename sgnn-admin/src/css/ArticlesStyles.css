@@ -17,7 +17,28 @@ td {
 }
 
 .article-detail, h1, h2, h3, h4, h5 {
-  font-family: 'Crimson Text', serif;
+  font-family: "Roboto";
+}
+
+/* wrapper that includes bulletpoints and image */
+.article-detail{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+}
+/* includes bulletpoints on article */
+.article-bulletpoints {
+  margin-left: 50px;
+}
+
+.article-image {
+  margin-top: 15px;
+  margin-right: 50px;
+}
+
+.article-text {
+  text-align: center;
 }
 
 .articles-container{
