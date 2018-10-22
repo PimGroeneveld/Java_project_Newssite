@@ -30,10 +30,17 @@ class App extends Component {
             {/* Articles routes */}
             <Route exact path = "/articles" render = {() => {
               const url = "/articles";
-              return <ArticleContainer url={url}/>
+              return <ArticleContainer url={url} sortable="false"/>
             }} />
 
             <Route exact path= "/articles/new" component={ArticleAddFormContainer}/>
+
+            <Route exact path="/articles/sortByDate" render={(props) => {
+              const url ="/articles";
+              return <ArticleContainer url ={url} sortable="true"/>
+            }
+
+            }/>
 
             <Route exact path = "/articles/:id/edit" render={(props) => {
               const url = "/articles/"+props.match.params.id+"?projection=articleProjection";

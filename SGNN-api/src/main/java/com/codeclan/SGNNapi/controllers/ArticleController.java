@@ -18,8 +18,8 @@ public class ArticleController {
     @Autowired
     ArticleRepository articleRepository;
 
-//    @GetMapping
-//    public List<Article> getSortedArticles(){
+//    @GetMapping(path = "/date")
+//    public List<Article> getSortedArticles(@PathVariable String date){
 //        return articleRepository.sortArticlesByDate();
 //    }
 

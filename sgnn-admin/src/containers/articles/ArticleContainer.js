@@ -13,8 +13,10 @@ class ArticleContainer extends Component {
       articleId: 0
     }
     this.url = props.url;
+    this.sortable = props.sortable;
     this.handleRowClick = this.handleRowClick.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
+    this.sortArticles = this.sortArticles.bind(this);
   }
 
   componentDidMount(){
@@ -22,7 +24,15 @@ class ArticleContainer extends Component {
     .then(response => response.json())
     .then((data) => {
       this.setState({articles: data._embedded.articles});
+      if(this.sortable === "true"){
+        this.sortArticles(this.state.articles);
+        this.setState({articles: this.state.articles});
+      }
   })
+}
+
+sortArticles(data) {
+  return data.sort((a,b) => { return Date.parse(b.publishDate) - Date.parse(a.publishDate) })
 }
 
   handleRowClick(id){
