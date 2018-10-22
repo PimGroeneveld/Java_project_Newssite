@@ -67,7 +67,6 @@ class ArticleDetailContainer extends Component {
     const editUrl = "/articles/"+this.state.article.id+"/edit";
     let formattedDate = moment(this.state.article.publishDate).format("DD/MM/YY hh:mm:ss");
 
-    console.log( this.state.article);
     return(
       <div className="article-detail-container">
         <h1>Article Details</h1>

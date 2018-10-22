@@ -57,6 +57,7 @@ class ArticleEditFormContainer extends Component {
       categories.push(generalCategoryLink);
     }
 
+
     const today = new Date();
     const updateUrl="/articles/"+this.state.article.id;
     fetch(updateUrl, {
