@@ -38,7 +38,7 @@ class ArticleAddFormContainer extends Component {
 
   handleNewArticleFormSubmit(event) {
 
-    console.log(event.formData);
+    console.log("when new data submitted",event.formData);
 
     const categories = event.formData.categories;
     const generalCategoryLink = "http://localhost:3000/categories/1";
@@ -52,6 +52,7 @@ class ArticleAddFormContainer extends Component {
     }
 
     const today = new Date();
+    const imageUrl = "/images/preview-icon.png";
 
     fetch('/articles', {
       method: "POST",
@@ -61,7 +62,7 @@ class ArticleAddFormContainer extends Component {
         "summary": event.formData.summary,
         "fullStory": event.formData.fullStory,
         "publishDate": today,
-        "imageUrl": event.formData.imageUrl,
+        "imageUrl": imageUrl,
         "region": event.formData.region,
         "categories": event.formData.categories,
         "journalists": event.formData.journalists

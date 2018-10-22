@@ -62,8 +62,8 @@ const AddFormSchema = (props) => {
       },
       image: {
         type: "string",
-        title: "Image",
-        format: "data-url"
+        title: "Image"
+        // format: "data-url"
       }
     }
   };
@@ -83,6 +83,9 @@ const AddFormSchema = (props) => {
     },
     categories: {
       "ui:emptyValue": regionLinks[0]
+    },
+    image: {
+      "ui:widget": "file"
     }
   }
 

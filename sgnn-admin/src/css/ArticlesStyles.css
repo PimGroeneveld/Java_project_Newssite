@@ -1,3 +1,7 @@
+body {
+  background-color: seashell;
+}
+
 #articles-table {
   border: 1px solid black;
 }
@@ -36,4 +40,9 @@ a{
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
+}
+
+.article-image {
+  width: 300px;
+  padding-left: 300px;
 }

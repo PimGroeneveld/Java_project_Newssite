@@ -67,6 +67,7 @@ class ArticleDetailContainer extends Component {
     const editUrl = "/articles/"+this.state.article.id+"/edit";
     let formattedDate = moment(this.state.article.publishDate).format("DD/MM/YY hh:mm:ss");
 
+    console.log( this.state.article);
     return(
       <div className="article-detail-container">
         <h1>Article Details</h1>
@@ -81,14 +82,14 @@ class ArticleDetailContainer extends Component {
         <div className="article-detail">
           <h2>{this.state.article.headline}</h2>
           <h5>Published Date: {formattedDate}</h5>
-          <h6>By :
+          <h5>By :
             {journalists}
-          </h6>
-          <h6>Categories :
+          </h5>
+          <h5>Categories :
             {categories}
-          </h6>
-          <h6>Region : {this.state.article.region.regionName}</h6>
-          <img src={this.state.article.imageUrl} alt="ArticleImage"/>
+          </h5>
+          <h5>Region : {this.state.article.region.regionName}</h5>
+          <img src={this.state.article.imageUrl} alt="ArticleImage" className="article-image"/>
           <h3>Summary</h3>
           <p>{this.state.article.summary}</p>
           <h3>Description</h3>
