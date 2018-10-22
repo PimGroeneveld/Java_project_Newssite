@@ -20,6 +20,52 @@ td {
   font-family: 'Crimson Text', serif;
 }
 
+.articles-container{
+  text-align: center;
+}
+
+.article-list, .edit-article-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.delete-back-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 350px;
+}
+
+.add-article-button, .edit-article-button, .back-button {
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #008CBA;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.delete-article-button {
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #f44336;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
 .article-number-element {
   padding-left: 10px;
   width: 30px;

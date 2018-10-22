@@ -29,7 +29,7 @@ class ArticleDetailContainer extends Component {
     event.preventDefault();
     confirmAlert({
       title: 'Confirm to submit',
-      message: 'Are you sure to remove this article.',
+      message: 'Are you sure to remove this article?',
       buttons: [
         {
           label: 'Yes',
@@ -71,14 +71,9 @@ class ArticleDetailContainer extends Component {
     return(
       <div className="article-detail-container">
         <h1>Article Details</h1>
-
-        <a href={editUrl}>Edit</a>
-
-        {/* <a href={editUrl}>Edit</a> */}
-{/* //         <EditArticleButton articleUrl = { this.url } /> */}
-
-        <a href="." onClick={this.handleDeleteClick}>Delete</a>
-        <a href="/articles">Back</a>
+        <div className = "edit-article-button-wrapper">
+          <a className = "edit-article-button" href={editUrl}>Edit</a>
+        </div>
         <div className="article-detail">
           <h2>{this.state.article.headline}</h2>
           <h5>Published Date: {formattedDate}</h5>
@@ -94,6 +89,10 @@ class ArticleDetailContainer extends Component {
           <p>{this.state.article.summary}</p>
           <h3>Description</h3>
           <p>{this.state.article.fullStory}</p>
+        </div>
+        <div className = "delete-back-button-wrapper" >
+          <a className = "delete-article-button" href="." onClick={this.handleDeleteClick}>Delete</a>
+          <a className = "back-button" href="/articles">Back</a>
         </div>
       </div>
 

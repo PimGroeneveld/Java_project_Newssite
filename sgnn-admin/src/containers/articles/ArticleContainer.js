@@ -42,7 +42,7 @@ class ArticleContainer extends Component {
       <div className="articles-container">
         <h1>Articles</h1>
         {this.renderRedirect()}
-        <a href="/articles/new">Add new article</a>
+        <a className= "add-article-button" href="/articles/new">Add new article</a>
         <ArticleList articles={this.state.articles} onRowClick={this.handleRowClick}/>
       </div>
     )
