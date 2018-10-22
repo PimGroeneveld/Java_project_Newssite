@@ -24,22 +24,30 @@ class JournalistFormContainer extends Component {
     })
   }
 
+  handleFormCancel(event){
+    window.location = "/journalists";
+  }
+
   render() {
     return(
       <div className = "form">
         <h1>Create New Journalist</h1>
 
         <form onSubmit = { this.handleSubmit }>
-          <input type = "text" placeholder = "Name" name = "name"></input>
+          <input type = "text" placeholder = "Name" name = "name" className="journalist-form-text"></input>
           <br/>
-          <input type = "text" placeholder = "City of residence" name = "cityOfResidence"></input>
+          <input type = "text" placeholder = "City of residence" name = "cityOfResidence" className="journalist-form-text"></input>
           <br/>
-          <input type = "text" placeholder = "Email" name = "email"></input>
+          <input type = "email" placeholder = "Email" name = "email" className="journalist-form-text"></input>
           <br/>
-          <input type = "text" placeholder = "Phone" name = "phone"></input>
+          <input type = "tel" placeholder = "Phone" name = "phone" className="journalist-form-text" pattern="[1-9]{1}[0-9]{9}" title="Please enter 10 digit phone number"></input>
           <br/>
-          <button type = "submit">Save</button>
-        </form>
+          <div>
+            <button type="submit" className="submit-button">Save</button>
+            <button type="button" onClick={this.handleFormCancel} className="cancel-button">Cancel</button>
+          </div>
+
+          </form>
       </div>
       // <input type = "text" placeholder = "Picture url" name = "picture"></input>
       // <br/>

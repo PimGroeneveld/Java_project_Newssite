@@ -207,7 +207,7 @@ const AddFormSchema = (props) => {
     <Form schema={schema} uiSchema={uiSchema}
       onSubmit={handleFormSubmit} formData={newFormData} onChange={handleFormInputChange}>
       <div>
-        <button type="submit" className="submit-button">Submit</button>
+        <button type="submit" className="submit-button">Save</button>
         <button type="button" onClick={handleFormCancel} className="cancel-button">Cancel</button>
       </div>
     </Form>

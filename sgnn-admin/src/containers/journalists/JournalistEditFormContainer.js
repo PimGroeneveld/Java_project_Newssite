@@ -41,14 +41,14 @@ class JournalistEditFormContainer extends Component {
       <div className = "form">
         <h1>Edit Journalist</h1>
 
-        <form onSubmit = { this.handleSubmit }>
-          <input type = "text" defaultValue = {this.state.journalistInfo.name} name = "name"></input>
+        <form onSubmit = { this.handleSubmit } >
+          <input type = "text" defaultValue = {this.state.journalistInfo.name} name = "name" className="journalist-form-text"></input>
           <br/>
-          <input type = "text" defaultValue = {this.state.journalistInfo.cityOfResidence} name = "cityOfResidence"></input>
+          <input type = "text" defaultValue = {this.state.journalistInfo.cityOfResidence} name = "cityOfResidence" className="journalist-form-text"></input>
           <br/>
-          <input type = "text" defaultValue = {this.state.journalistInfo.email} name = "email"></input>
+          <input type = "text" defaultValue = {this.state.journalistInfo.email} name = "email" className="journalist-form-text"></input>
           <br/>
-          <input type = "text" defaultValue = {this.state.journalistInfo.phone} name = "phone" ></input>
+          <input type = "text" defaultValue = {this.state.journalistInfo.phone} name = "phone" className="journalist-form-text"></input>
           <br/>
           <input type="hidden" name="id" value={this.jId}></input>
           <button type = "submit">Save</button>
