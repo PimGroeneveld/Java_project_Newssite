@@ -149,10 +149,6 @@ a{
 
 }
 
-.cancel-button {
-
-}
-
 .footer {
   margin-top: 100px;
   height: 50px;
@@ -238,4 +234,9 @@ h3 p{
   height: 30px;
   font-weight: bold;
   color: maroon;
+}
+
+.article-image {
+  height: 300px;
+  width: 500px;
 }
