@@ -4,7 +4,6 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import JournalistSingleDetail from '../../components/journalists/JournalistSingleDetail';
 import EditJournalistButton from "../../components/journalists/EditJournalistButton.js";
-import BackToAllButton from "../../components/journalists/BackToAllButton.js";
 
 class JournalistDetailContainer extends Component {
   constructor(props) {
@@ -59,8 +58,7 @@ class JournalistDetailContainer extends Component {
         <JournalistSingleDetail journalist = { this.state.journalist } />
         <div className = "back-delete-journalist-wrapper">
         <a className= "delete-journalist-button" href="." onClick={this.handleDeleteClick}>Delete</a>
-        <br/>
-        <BackToAllButton />
+        <a className = "show-all-button" href = "/journalists" >Back to all journalists</a>
         </div>
       </div>
     )

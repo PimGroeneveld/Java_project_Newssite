@@ -62,7 +62,10 @@ h1, h2, h3, h4, h5 {
 .back-delete-journalist-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 350px;
+
 }
 
 .add-journalist-button, .edit-journalist-button, .show-all-button{
@@ -89,6 +92,7 @@ h1, h2, h3, h4, h5 {
   padding: 10px 22px;
   text-decoration: none;
   font-size: 16px;
+
 }
 
 .form {

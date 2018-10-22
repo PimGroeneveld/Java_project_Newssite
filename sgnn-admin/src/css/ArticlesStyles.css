@@ -16,6 +16,10 @@ td {
   border-right: 1px solid black;
 }
 
+.article-detail, h1, h2, h3, h4, h5 {
+  font-family: 'Crimson Text', serif;
+}
+
 .article-number-element {
   padding-left: 10px;
   width: 30px;
