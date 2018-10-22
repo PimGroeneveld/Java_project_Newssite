@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5 {
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 350px;
+  max-width: 500px;
 }
 
 .add-journalist-button, .edit-journalist-button, .show-all-button{

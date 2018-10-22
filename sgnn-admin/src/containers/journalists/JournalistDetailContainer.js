@@ -51,13 +51,15 @@ class JournalistDetailContainer extends Component {
 
   render() {
     if(!this.state.journalist) return null;
+    const articlesUrl = this.url + "/articles"
     return(
       <div className="journalist-container">
-        <h1>Journalist info:</h1>
+        <h1>Journalist Details</h1>
         <EditJournalistButton journalistUrl = { this.url }/>
         <JournalistSingleDetail journalist = { this.state.journalist } />
         <div className = "back-delete-journalist-wrapper">
         <a className= "delete-journalist-button" href="." onClick={this.handleDeleteClick}>Delete</a>
+          <a className = "show-all-button" href = {articlesUrl}>Get articles</a>
         <a className = "show-all-button" href = "/journalists" >Back to all journalists</a>
         </div>
       </div>

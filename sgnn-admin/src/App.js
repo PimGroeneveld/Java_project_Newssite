@@ -30,7 +30,7 @@ class App extends Component {
             {/* Articles routes */}
             <Route exact path = "/articles" render = {() => {
               const url = "/articles";
-              return <ArticleContainer url={url} sortable="false"/>
+              return <ArticleContainer url={url} refreshList="true"/>
             }} />
 
             <Route exact path= "/articles/new" component={ArticleAddFormContainer}/>
@@ -66,11 +66,18 @@ class App extends Component {
               const url = "/journalists/" + props.match.params.id;
               return <JournalistEditFormContainer url={url} jId={props.match.params.id}/>
             }} />
+
+            <Route exact path="/journalists/:id/articles" render={(props) => {
+              const url = "/articles/journalist/"+props.match.params.id;
+              return<ArticleContainer url={url} sortable="true" journalistId={props.match.params.id}/>
+            }}/>
+
             {/*Show one, also route for delete*/}
             <Route exact path="/journalists/:id" render={(props) => {
               const url = "/journalists/" + props.match.params.id;
               return <JournalistDetailContainer url={url}/>
               }} />
+
           </Switch>
           <Footer />
         </React.Fragment>

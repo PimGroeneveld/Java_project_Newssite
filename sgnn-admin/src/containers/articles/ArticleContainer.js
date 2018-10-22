@@ -14,20 +14,55 @@ class ArticleContainer extends Component {
     }
     this.url = props.url;
     this.sortable = props.sortable;
+    this.journalistId = props.journalistId;
     this.handleRowClick = this.handleRowClick.bind(this);
     this.renderRedirect = this.renderRedirect.bind(this);
     this.sortArticles = this.sortArticles.bind(this);
+
+  }
+
+  componentWillReceiveProps(props){
+    console.log("RECIEV PROPS:"+ props);
+    const {url, refreshList} = this.props;
+    if (props.refreshList!== refreshList) {
+
+      fetch(props.url)
+      .then(response => response.json())
+      .then((data) => {
+        if(data._embedded){
+          this.setState({articles: data._embedded.articles});
+        }
+        else {
+          this.setState({articles: data});
+        }
+        if(this.sortable === "true"){
+          this.sortArticles(this.state.articles);
+          this.setState({articles: this.state.articles});
+        }
+    })
+    console.log(this.state.articles);
+    }
+    else {
+      console.log("equal");
+    }
   }
 
   componentDidMount(){
     fetch(this.url)
     .then(response => response.json())
     .then((data) => {
-      this.setState({articles: data._embedded.articles});
+      if(data._embedded){
+        this.setState({articles: data._embedded.articles});
+      }
+      else {
+        this.setState({articles: data});
+      }
+
       if(this.sortable === "true"){
         this.sortArticles(this.state.articles);
         this.setState({articles: this.state.articles});
       }
+
   })
 }
 
@@ -44,8 +79,8 @@ sortArticles(data) {
     if(this.state.redirect){
       return <Redirect to={articleUrl}/>
     }
-
   }
+
 
   render() {
     return(
