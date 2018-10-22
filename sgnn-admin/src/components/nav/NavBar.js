@@ -3,13 +3,8 @@ import { Link } from 'react-router-dom';
 
 const NavBar = props => {
   return(
-    <header className = "navbar">
+    <header className = "navbar-bottom">
       <ul>
-        <li className = "logo">
-          <a href = "/">
-            <p>SGNN</p>
-          </a>
-        </li>
         <li>
           <Link to = "/">Home</Link>
           <Link to = "/articles">Articles</Link>

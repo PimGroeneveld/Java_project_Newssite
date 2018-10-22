@@ -1,5 +1,5 @@
 body {
-  background-color: seashell;
+  background-color: whitesmoke;
 }
 
 #articles-table {
@@ -17,28 +17,7 @@ td {
 }
 
 .article-detail, h1, h2, h3, h4, h5 {
-  font-family: "Roboto";
-}
-
-/* wrapper that includes bulletpoints and image */
-.article-detail{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0 auto;
-}
-/* includes bulletpoints on article */
-.article-bulletpoints {
-  margin-left: 50px;
-}
-
-.article-image {
-  margin-top: 15px;
-  margin-right: 50px;
-}
-
-.article-text {
-  text-align: center;
+  font-family: 'Crimson Text', serif;
 }
 
 .articles-container{
@@ -113,7 +92,115 @@ a{
   font-weight: bold;
 }
 
-.article-image {
-  width: 300px;
-  padding-left: 300px;
+ .form-control {
+  margin-left: 10px;
+  width: 500px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+
+ }
+
+.control-label {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: maroon;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.add-header {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.article-form-container {
+  margin-top: 0px;
+}
+
+.form-group {
+  background-color: antiquewhite;
+}
+
+.required {
+  padding-left: 10px;
+  color: red
+}
+
+.submit-button, .cancel-button {
+  margin-top: 10px;
+  margin-left: 10px;
+  color: white;
+  background-color: grey;
+  font-size: 15px;
+  padding:5px 15px;
+  border:0 none;
+  cursor:pointer;
+  border-radius: 5px;
+
+}
+
+.cancel-button {
+
+}
+
+.footer {
+  margin-top: 100px;
+  height: 50px;
+  background-color: #444444;
+}
+
+.navbar-top {
+  font-family: 'Roboto', sans-serif;
+  padding: 2px;
+  height: 27px;
+  background-color: #eeeeee;
+}
+
+.navbar-top ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar-top li {
+  display: inline;
+}
+
+.navbar-top p {
+  padding: 0;
+  margin: 0;
+  display: inline;
+  color: #000000;
+  letter-spacing: 5px;
+}
+
+.logo a {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.logo {
+  font-family: 'Zilla Slab Highlight', cursive;
+}
+
+.home-container h2{
+  font-size: 38px;
+  text-decoration: underline;
+}
+
+.home-container h3{
+  font-size: 28px;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.home-container p {
+  font-size: 18px;
+  padding-left: 10px;
+  color: maroon;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
 }

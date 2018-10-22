@@ -2,8 +2,9 @@ import React from 'react';
 import Form from 'react-jsonschema-form';
 
 
+
 const AddFormSchema = (props) => {
-  // console.log(props);
+
   if(props.journalists.length === 0 || props.categories.length === 0 || props.regions.length === 0 ) return null;
 
   const journalistLinks = props.journalists.map((journalist) => journalist._links.self.href);
@@ -72,35 +73,42 @@ const AddFormSchema = (props) => {
     headline: {
       "ui:widget": "textarea",
       "ui:options": {rows: 2},
-      "ui:autofocus": true
+      "ui:autofocus": true,
+      classNames: "headline"
     },
     summary: {
       "ui:widget": "textarea",
-      "ui:options": {rows: 15}
+      "ui:options": {rows: 15},
+      classNames: "summary"
     },
     fullStory: {
       "ui:widget": "textarea",
-      "ui:options": {rows: 20}
+      "ui:options": {rows: 20},
+      classNames: "fullStory"
     },
     region: {
       "ui:placeholder": "Choose an option",
-      "ui:emptyValue": regionLinks[4]
+      "ui:emptyValue": regionLinks[4],
+      classNames: "region"
     },
     categories: {
-      "ui:emptyValue": regionLinks[0]
+      "ui:emptyValue": regionLinks[0],
+      classNames: "categories"
     },
     image: {
-      "ui:widget": "file"
+      "ui:widget": "file",
+      classNames: "image"
+    },
+    journalists: {
+      classNames: "journalists"
     }
   }
 
 
   const getRegionLinkById = (regionId) => {
     const region = props.regions.find((region) => {
-      console.log(region);
       return region.id === regionId
     })
-    console.log("LINK:"+region._links.self.href);
     return region._links.self.href
   }
 
@@ -132,7 +140,7 @@ const AddFormSchema = (props) => {
 
 
     var newFormData = null;
-    console.log("jfuisd",props.formData);
+
     if(props.formData){
       newFormData = {
         headline: props.formData.headline,
@@ -201,8 +209,8 @@ const AddFormSchema = (props) => {
     <Form schema={schema} uiSchema={uiSchema}
       onSubmit={handleFormSubmit} formData={newFormData} onChange={handleFormInputChange}>
       <div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleFormCancel}>Cancel</button>
+        <button type="submit" className="submit-button">Submit</button>
+        <button type="button" onClick={handleFormCancel} className="cancel-button">Cancel</button>
       </div>
     </Form>
   )

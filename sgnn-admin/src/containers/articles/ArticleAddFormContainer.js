@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
 import AddFormSchema from '../../components/articles/AddFormSchema.js';
+import '../../css/ArticlesStyles.css';
 
 class ArticleAddFormContainer extends Component {
 
@@ -82,7 +83,7 @@ class ArticleAddFormContainer extends Component {
 
     return(
       <div className="article-form-container">
-        <h2>Add new article</h2>
+        <h2 className="add-header">Add new article</h2>
 
         <AddFormSchema journalists={this.state.journalists} categories={this.state.categories} regions={this.state.regions} onNewArticleFormSubmit={this.handleNewArticleFormSubmit} />
 

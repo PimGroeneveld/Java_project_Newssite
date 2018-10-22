@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from './components/nav/NavBar';
+import Footer from './components/nav/Footer';
+import NavBarTop from './components/nav/NavBarTop';
 
 import ArticleContainer from './containers/articles/ArticleContainer';
 import ArticleDetailContainer from './containers/articles/ArticleDetailContainer.js';
@@ -13,13 +14,15 @@ import JournalistContainer from './containers/journalists/JournalistContainer';
 import JournalistFormContainer from './containers/journalists/JournalistFormContainer';
 import JournalistDetailContainer from './containers/journalists/JournalistDetailContainer';
 import JournalistEditFormContainer from './containers/journalists/JournalistEditFormContainer';
-// import JournalistDeleteContainer from './containers/journalists/JournalistDeleteContainer';
+
+import './css/ArticlesStyles.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <React.Fragment>
+          <NavBarTop />
           <NavBar />
           <Switch>
             <Route exact path = "/" component = { HomeContainer } />
