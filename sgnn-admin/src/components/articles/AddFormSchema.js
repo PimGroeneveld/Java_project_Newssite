@@ -1,8 +1,6 @@
 import React from 'react';
 import Form from 'react-jsonschema-form';
 
-
-
 const AddFormSchema = (props) => {
 
   if(props.journalists.length === 0 || props.categories.length === 0 || props.regions.length === 0 ) return null;
@@ -201,7 +199,7 @@ const AddFormSchema = (props) => {
   }
 
   function handleFormCancel(event) {
-    console.log(event);
+    window.location = "/articles"
   }
 
   return(
