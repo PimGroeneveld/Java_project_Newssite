@@ -76,7 +76,7 @@ class ArticleDetailContainer extends Component {
         <div className="article-detail">
           <div className="article-bulletpoints">
             <h2>{this.state.article.headline}</h2>
-            <h3>Published Date: {formattedDate}</h3>
+            <h3>Published Date:{formattedDate}</h3>
             <h4>By :
               {journalists}
             </h4>

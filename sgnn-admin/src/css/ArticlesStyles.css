@@ -79,7 +79,7 @@ td {
   text-align: center;
 }
 .article-headline-element {
-  width: 600px;
+  width: 550px;
   text-align: center;
 }
 .article-date-element {
@@ -218,4 +218,11 @@ h3 p{
 .single-content {
   font-size: 40px;
   color: maroon;
+}
+
+.article-date-element a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
 }

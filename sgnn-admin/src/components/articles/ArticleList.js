@@ -6,7 +6,6 @@ const ArticleList = (props) => {
   if(!props.articles) return null;
 
   const articlesOptions = props.articles.map((article, index) => {
-    console.log("in");
     return (
         <Article key={index} article={article} index={index} onRowClick={props.onRowClick}/>
     )
@@ -19,7 +18,7 @@ const ArticleList = (props) => {
           <tr>
             <td className="article-table-element"></td>
             <td className="article-headline-element">Headline</td>
-            <td className="article-date-element">Published Date</td>
+            <td className="article-date-element"><a href="/articles/sortByDate">Published Date</a></td>
             <td className="article-region-element">Region</td>
           </tr>
         </thead>
