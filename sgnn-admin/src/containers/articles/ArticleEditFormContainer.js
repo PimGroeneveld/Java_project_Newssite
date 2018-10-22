@@ -46,6 +46,16 @@ class ArticleEditFormContainer extends Component {
   handleEditFormSubmit(event){
 
     console.log(event.formData.region);
+    const categories = event.formData.categories;
+    const generalCategoryLink = "http://localhost:3000/categories/1";
+    if(categories){
+      if(!categories.includes(generalCategoryLink)){
+        categories.push(generalCategoryLink);
+      }
+    }
+    else {
+      categories.push(generalCategoryLink);
+    }
 
     const today = new Date();
     const updateUrl="/articles/"+this.state.article.id;
@@ -59,7 +69,7 @@ class ArticleEditFormContainer extends Component {
         "publishDate": today,
         "imageUrl": event.formData.imageUrl,
         "region": event.formData.region,
-        "categories": event.formData.categories,
+        "categories": categories,
         "journalists": event.formData.journalists
       })
     })

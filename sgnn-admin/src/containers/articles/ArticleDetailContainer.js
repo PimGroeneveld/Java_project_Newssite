@@ -3,7 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 import moment from 'moment';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
-import EditArticleButton from "../../components/articles/EditArticleButton";
+// import EditArticleButton from "../../components/articles/EditArticleButton";
 
 class ArticleDetailContainer extends Component {
 
