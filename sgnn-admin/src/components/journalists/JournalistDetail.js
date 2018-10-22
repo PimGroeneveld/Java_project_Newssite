@@ -6,7 +6,7 @@ const JournalistDetail = props => {
   return(
     <div className = "journalist-detail">
       <a href = {url}>
-        <img src = { process.env.PUBLIC_URL + '/images/woman.jpg' } alt = "journo"></img>
+        <img src = { process.env.PUBLIC_URL + '/images/anonymous.jpg' } alt = "journo"></img>
       </a>
       <p>{ props.journalist.name }</p>
     </div>

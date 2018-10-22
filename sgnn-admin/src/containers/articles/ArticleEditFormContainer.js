@@ -60,7 +60,7 @@ class ArticleEditFormContainer extends Component {
     const today = new Date();
     const updateUrl="/articles/"+this.state.article.id;
     fetch(updateUrl, {
-      method: "PUT",
+      method: "PATCH",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         "headline": event.formData.headline,
