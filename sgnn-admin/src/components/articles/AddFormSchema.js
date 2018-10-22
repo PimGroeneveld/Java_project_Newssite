@@ -72,25 +72,34 @@ const AddFormSchema = (props) => {
     headline: {
       "ui:widget": "textarea",
       "ui:options": {rows: 2},
-      "ui:autofocus": true
+      "ui:autofocus": true,
+      classNames: "headline"
     },
     summary: {
       "ui:widget": "textarea",
-      "ui:options": {rows: 15}
+      "ui:options": {rows: 15},
+      classNames: "summary"
     },
     fullStory: {
       "ui:widget": "textarea",
-      "ui:options": {rows: 20}
+      "ui:options": {rows: 20},
+      classNames: "fullStory"
     },
     region: {
       "ui:placeholder": "Choose an option",
-      "ui:emptyValue": regionLinks[4]
+      "ui:emptyValue": regionLinks[4],
+      classNames: "region"
     },
     categories: {
-      "ui:emptyValue": regionLinks[0]
+      "ui:emptyValue": regionLinks[0],
+      classNames: "categories"
     },
     image: {
-      "ui:widget": "file"
+      "ui:widget": "file",
+      classNames: "image"
+    },
+    journalists: {
+      classNames: "journalists"
     }
   }
 
