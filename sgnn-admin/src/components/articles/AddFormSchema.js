@@ -6,15 +6,15 @@ const AddFormSchema = (props) => {
   console.log(props);
   if(props.journalists.length === 0 || props.categories.length === 0 || props.regions.length === 0 ) return null;
 
-  const journalistLinks = props.journalists.map((journalist) => journalist._links.journalist.href);
+  const journalistLinks = props.journalists.map((journalist) => journalist._links.self.href);
 
   const journalistNames = props.journalists.map((journalist) => journalist.name);
 
-  const categoriesLinks =props.categories.map((category) => category._links.category.href);
+  const categoriesLinks =props.categories.map((category) => category._links.self.href);
 
   const categoriesNames =props.categories.map((category) => category.name);
 
-  const regionLinks = props.regions.map((region) => region._links.region.href);
+  const regionLinks = props.regions.map((region) => region._links.self.href);
 
   const regionNames = props.regions.map((region) => region.regionName);
 
@@ -91,8 +91,7 @@ const AddFormSchema = (props) => {
     const region = props.regions.find((region) => {
       return region.id === regionId
     })
-    console.log(region);
-    return region._links.region.href
+    return region._links.self.href
   }
 
   const getCategoriesLinksByIds = (categories) => {
@@ -101,7 +100,7 @@ const AddFormSchema = (props) => {
     for (var i = 0; i < props.categories.length; i++) {
       for (var j = 0; j < categories.length; j++) {
         if (props.categories[i].id === categories[j].id) {
-          categoriesLinks.push(props.categories[i]._links.category.href)
+          categoriesLinks.push(props.categories[i]._links.self.href)
         }
       }
     }
@@ -114,7 +113,7 @@ const AddFormSchema = (props) => {
     for (var i = 0; i < props.journalists.length; i++) {
       for (var j = 0; j < journalists.length; j++) {
         if (props.journalists[i].id === journalists[j].id) {
-          journalistsLinks.push(props.journalists[i]._links.journalist.href)
+          journalistsLinks.push(props.journalists[i]._links.self.href)
         }
       }
     }

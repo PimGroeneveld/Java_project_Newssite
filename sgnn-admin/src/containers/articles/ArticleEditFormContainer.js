@@ -45,7 +45,7 @@ class ArticleEditFormContainer extends Component {
 
   handleEditFormSubmit(event){
 
-    console.log(event.formData.region);
+    console.log("REGION",event.formData.region);
     const categories = event.formData.categories;
     const generalCategoryLink = "http://localhost:3000/categories/1";
     if(categories){
@@ -59,6 +59,7 @@ class ArticleEditFormContainer extends Component {
 
     const today = new Date();
     const updateUrl="/articles/"+this.state.article.id;
+    console.log(updateUrl);
     fetch(updateUrl, {
       method: "PUT",
       headers: {'Content-Type': 'application/json'},
@@ -75,7 +76,7 @@ class ArticleEditFormContainer extends Component {
     })
     .then(response => response.json())
     .then(() => {
-      window.location = updateUrl;
+      // window.location = updateUrl;
     })
 
   }
