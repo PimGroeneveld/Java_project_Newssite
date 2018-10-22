@@ -1,5 +1,5 @@
 body {
-  background-color: seashell;
+  background-color: whitesmoke;
 }
 
 #articles-table {
@@ -92,7 +92,47 @@ a{
   font-weight: bold;
 }
 
-.article-image {
-  width: 300px;
-  padding-left: 300px;
+ .form-control {
+  margin-left: 10px;
+  width: 500px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+
+ }
+
+.control-label {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: maroon;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.add-header {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.article-form-container {
+  margin-top: 0px;
+}
+
+.form-group {
+  background-color: antiquewhite;
+}
+
+.required {
+  padding-left: 10px;
+  color: red
+}
+
+.submit-button {
+
+}
+
+.cancel-button {
+  
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AddFormSchema from '../../components/articles/AddFormSchema.js';
+import '../../css/ArticlesStyles.css';
 
 class ArticleEditFormContainer extends Component {
 

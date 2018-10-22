@@ -2,8 +2,9 @@ import React from 'react';
 import Form from 'react-jsonschema-form';
 
 
+
 const AddFormSchema = (props) => {
-  // console.log(props);
+
   if(props.journalists.length === 0 || props.categories.length === 0 || props.regions.length === 0 ) return null;
 
   const journalistLinks = props.journalists.map((journalist) => journalist._links.self.href);
@@ -106,10 +107,8 @@ const AddFormSchema = (props) => {
 
   const getRegionLinkById = (regionId) => {
     const region = props.regions.find((region) => {
-      console.log(region);
       return region.id === regionId
     })
-    console.log("LINK:"+region._links.self.href);
     return region._links.self.href
   }
 
@@ -141,7 +140,7 @@ const AddFormSchema = (props) => {
 
 
     var newFormData = null;
-    console.log("jfuisd",props.formData);
+
     if(props.formData){
       newFormData = {
         headline: props.formData.headline,
@@ -210,8 +209,8 @@ const AddFormSchema = (props) => {
     <Form schema={schema} uiSchema={uiSchema}
       onSubmit={handleFormSubmit} formData={newFormData} onChange={handleFormInputChange}>
       <div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleFormCancel}>Cancel</button>
+        <button type="submit" className="submit-button">Submit</button>
+        <button type="button" onClick={handleFormCancel} className="cancel-button">Cancel</button>
       </div>
     </Form>
   )
