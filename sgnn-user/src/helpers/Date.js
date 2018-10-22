@@ -1,4 +1,6 @@
 const prettyDate = (dateString) => {
+  if(!dateString) {return null}
+  
   const monthNames = ["January", "February", "March", "April", "May", "June",
                       "July", "August", "September", "October", "November", "December"];
   const date = dateString.split("T")[0].split("-");

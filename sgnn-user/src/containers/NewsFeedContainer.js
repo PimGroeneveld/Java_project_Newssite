@@ -16,11 +16,15 @@ class NewsFeedContainer extends Component {
       .then(res => res.json())
       .then(data => {
         if(data._embedded) {
-          this.setState({ articles: data._embedded.articles })
+          this.setState({ articles: this.sortArticles(data._embedded.articles) })
         } else {
-          this.setState({ articles: data })
+          this.setState({ articles: this.sortArticles(data) })
         }
       })
+  }
+
+  sortArticles(data) {
+    return data.sort((a,b) => { return Date.parse(b.publishDate) - Date.parse(a.publishDate) })
   }
 
   render() {
@@ -28,7 +32,7 @@ class NewsFeedContainer extends Component {
       <div className = "news-feed-container">
         <MainArticle article = { this.state.articles[0] }/>     
         <hr/>
-        <ArticleList articles = { this.state.articles }/> 
+        <ArticleList articles = { this.state.articles.slice(1) }/> 
       </div>
     )
   }
