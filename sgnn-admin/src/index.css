@@ -7,7 +7,7 @@ body {
 header {
   background-color: #cc0000;
   height: 70px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 header ul {
@@ -99,4 +99,10 @@ h1, h2, h3, h4, h5 {
 
 .logo {
   float: left;
+  font-family: 'Zilla Slab Highlight', cursive;
+}
+
+.logo a {
+  margin-left: 10px;
+  text-decoration: none;
 }
