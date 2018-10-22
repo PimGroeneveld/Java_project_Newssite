@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
 import AddFormSchema from '../../components/articles/AddFormSchema.js';
 
 class ArticleEditFormContainer extends Component {

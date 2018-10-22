@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import moment from 'moment';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
@@ -58,7 +59,12 @@ class ArticleDetailContainer extends Component {
       return <Link key={journalist.id} to={journalistUrl}>{journalist.name}</Link>
     });
 
+    const categories = this.state.article.categories.map((category) => {
+      return category.name+" "
+    });
+
     const editUrl = "/articles/"+this.state.article.id+"/edit";
+    let formattedDate = moment(this.state.article.publishDate).format("DD/MM/YY hh:mm:ss");
 
     return(
       <div className="article-detail-container">
@@ -68,9 +74,12 @@ class ArticleDetailContainer extends Component {
         <a href="/articles">Back</a>
         <div className="article-detail">
           <h2>{this.state.article.headline}</h2>
-          <h5>Published Date: {this.state.article.publishDate}</h5>
+          <h5>Published Date: {formattedDate}</h5>
           <h6>By :
             {journalists}
+          </h6>
+          <h6>Categories :
+            {categories}
           </h6>
           <h6>Region : {this.state.article.region.regionName}</h6>
           <img src={this.state.article.imageUrl} alt="ArticleImage"/>
