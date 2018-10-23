@@ -15,7 +15,7 @@ h1 {
 }
 
 a:hover {
-  color: #004f99;
+  color: lightslategray;
 }
 
 header {
@@ -89,6 +89,12 @@ header ul li a {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 700;
+}
+
+.categories-navbar{
+  font-size: 17px;
+  font-family: 'Roboto';
+  font-weight: bold;
 }
 
 .navbar-bottom ul {
@@ -201,4 +207,72 @@ p.preview-date {
   margin-top: 100px;
   height: 200px;
   background-color: #444444;
+}
+
+/* Nightmode */
+body {
+  --color-page-background: ghostwhite;
+  --color-primary-light: ghostwhite;
+  --color-primary-dark: rgb(10,10,10);
+}
+
+.nightmode {
+  --color-page-background: rgb(10,10,10);
+  --color-primary-light: rgb(10,10,10);
+  --color-primary-dark: rgb(240,240,240);
+}
+
+* {
+    transition: all .15s ease-in;
+}
+
+/* causes text to change color */
+body, #all-articles p, #all-articles h3, .navbar-bottom{
+  background-color: var(--color-page-background);
+  font: 1.1em/1.4 Dosis;
+  color: var(--color-primary-dark);
+}
+
+main {
+  max-width: 40rem;
+  margin: auto;
+  padding: 1rem;
+}
+
+article {
+  padding: 2rem;
+  background-color: var(--color-primary-light);
+  box-shadow: 6px 6px 0 0 var(--color-primary-dark);
+  * {
+    margin: 0;
+  }
+  * + * {
+    margin-top: 1rem;
+  }
+}
+
+.news-feed-container {
+  padding: 2rem;
+  background-color: var(--color-primary-light);
+  box-shadow: 6px 6px 0 0 var(--color-primary-dark);
+  * {
+    margin: 0;
+  }
+  * + * {
+    margin-top: 1rem;
+  }
+}
+
+[data-switch-contrast] {
+  position: absolute;
+  margin-top: 30px;
+  right: 1rem;
+  top: 2rem;
+  height: 2rem;
+  width: 4rem;
+
+  background-color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-light);
+  color: var(--color-primary-light);
+  font-weight: bold;
 }

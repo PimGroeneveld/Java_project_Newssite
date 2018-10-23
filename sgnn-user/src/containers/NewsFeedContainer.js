@@ -10,6 +10,7 @@ class NewsFeedContainer extends Component {
       articles: []
     }
   }
+  //set state for nightmode
 
   componentDidMount() {
     fetch(this.url)
@@ -29,10 +30,10 @@ class NewsFeedContainer extends Component {
 
   render() {
     return(
-      <div className = "news-feed-container">
-        <MainArticle article = { this.state.articles[0] } />     
+      <div id="all-articles" className = "news-feed-container">
+        <MainArticle article = { this.state.articles[0] } />
         <hr/>
-        <ArticleList articles = { this.state.articles.slice(1) }/> 
+        <ArticleList articles = { this.state.articles.slice(1) }/>
       </div>
     )
   }
