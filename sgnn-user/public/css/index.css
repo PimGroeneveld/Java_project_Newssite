@@ -175,14 +175,20 @@ header ul li a {
 .preview-date {
   font-size: 14px;
   color: #cccccc;
+  float: left;
+}
+
+p.preview-date {
+  margin-top: 0;
 }
 
 .viewcount-box {
   color: #cccccc;
+  float: right;
 }
 
 .viewcount-box p, i {
-  font-size: 14px;
+  font-size: 13px;
   display: inline;
 }
 
