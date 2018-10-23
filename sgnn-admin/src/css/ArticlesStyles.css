@@ -1,0 +1,288 @@
+body {
+  background-color: whitesmoke;
+}
+
+#articles-table {
+  border: 1px solid black;
+}
+
+thead {
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+  background-color: red;
+}
+
+tbody {
+  background-color: seashell;
+}
+
+td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+
+}
+
+.articles-container{
+  text-align: center;
+}
+
+.article-list, .edit-article-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.delete-back-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 350px;
+}
+
+.add-article-button, .edit-article-button, .back-button {
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #008CBA;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.delete-article-button {
+  display: inline-block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #f44336;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.article-number-element {
+  padding-left: 10px;
+  width: 30px;
+  text-align: center;
+}
+.article-headline-element {
+  width: 550px;
+  text-align: center;
+}
+.article-date-element {
+  padding-left: 10px;
+  width: 140px;
+  text-align: center;
+}
+.article-region-element {
+  padding-left: 10px;
+  width: 120px;
+  text-align: center;
+}
+
+a{
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+ .form-control {
+  margin-left: 10px;
+  width: 500px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+
+ }
+
+.control-label {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: maroon;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.add-header {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.article-form-container {
+  margin-top: 0px;
+}
+
+.form-group {
+  background-color: antiquewhite;
+}
+
+.required {
+  padding-left: 10px;
+  color: red
+}
+
+.submit-button, .cancel-button {
+  margin-top: 10px;
+  margin-left: 10px;
+  color: white;
+  background-color: grey;
+  font-size: 15px;
+  padding:5px 15px;
+  border:0 none;
+  cursor:pointer;
+  border-radius: 5px;
+
+}
+
+.footer {
+  margin-top: 100px;
+  height: 50px;
+  background-color: #444444;
+}
+
+.footer p {
+  padding-top: 12px;
+  padding-left: 12px;
+  color: white;
+}
+
+.navbar-top {
+  font-family: 'Roboto', sans-serif;
+  padding: 2px;
+  height: 27px;
+  background-color: #eeeeee;
+}
+
+.navbar-top ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar-top li {
+  display: inline;
+}
+
+.navbar-top p {
+  padding: 0;
+  margin: 0;
+  display: inline;
+  color: #000000;
+  letter-spacing: 5px;
+}
+
+.logo a {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.logo {
+  font-family: 'Zilla Slab Highlight', cursive;
+}
+
+.home-container h2{
+  font-size: 38px;
+  text-decoration: underline;
+}
+
+.home-container h3{
+  font-size: 28px;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.home-container p {
+  font-size: 18px;
+  padding-left: 10px;
+  color: maroon;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
+h3 p{
+  display: inline;
+}
+.single-content {
+  font-size: 40px;
+  color: maroon;
+}
+
+.article-date-element a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+}
+
+.journalist-form-text {
+  width: 200px;
+  height: 30px;
+  font-weight: bold;
+  color: maroon;
+}
+
+.article-image {
+  height: 300px;
+  width: 400px;
+}
+
+.article-detail {
+  display: flex;
+  width: 800px;
+  margin-left: 10px;
+}
+
+.article-detail, h1, h2, h3, h4, h5 {
+  font-family: 'Crimson Text', serif;
+}
+
+.article-detail-single {
+  background-color: seashell;
+}
+
+
+.article-bulletpoints h3 {
+  text-align: left;
+  width: 530px;
+}
+
+.article-bulletpoints h4{
+  text-align: left;
+  width: 530px;
+}
+.article-bulletpoints h2{
+  text-align: left;
+  width: 530px;
+  color: maroon;
+  font-weight: bold;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.article-image-wrapper {
+    width: 200px;
+}
+
+.article-text {
+  margin-left: 10px;
+  font-family: 'Crimson Text', serif;
+  font-size: 19px;
+  margin-right: 10px;
+}
+.article-text h3{
+  font-size: 25px;
+  text-align: left;
+  color: maroon;
+  text-decoration: underline;
+}

@@ -1,26 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import NavBar from './components/nav/NavBar';
+import NavBarTop from './components/nav/NavBarTop';
+import NavBarBottom from './components/nav/NavBarBottom';
+import NewsFeedContainer from './containers/NewsFeedContainer';
+import ArticleContainer from './components/articles/ArticleContainer';
+import Footer from './components/nav/Footer';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <React.Fragment>
+          <NavBarTop />
+          <NavBar />
+          <NavBarBottom />
+          <Route exact path = "/" render = { props => {
+            // Adding the key forces the component to remount when props are updated
+            return <NewsFeedContainer key = { props.match.params.id } url = "/articles" />
+           } } />
+          <Route exact path = "/articles/:id" component = { ArticleContainer } />
+          <Route exact path = "/articles/category/:id" render = { props => {
+            const url = "/articles/category/" + props.match.params.id;
+            return <NewsFeedContainer key = { props.match.params.id } url = { url } />
+          } } />
+          <Route exact path = "/articles/search/:query" render = { props => {
+            const url = "/articles/search/" + props.match.params.query;
+            return <NewsFeedContainer key = { props.match.params.query } url = { url } />
+          }} />
+          <Route exact path = "/articles/region/:name" render = { props => {
+            const url = "/articles/region/" + props.match.params.name;
+            return <NewsFeedContainer key = { props.match.params.name } url = { url } />
+          }} />
+          <Footer />
+        </React.Fragment>
+      </Router>
     );
   }
 }

@@ -1,0 +1,184 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Crimson Text', serif;
+}
+
+p {
+  font-size: 17px;
+  line-height: 26px;
+  text-align: justify;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+a:hover {
+  color: #004f99;
+}
+
+header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  background-color: #cc0000;
+  height: 70px;
+  margin-bottom: 5px;
+}
+
+header ul {
+  padding: 45px 0 0 0;
+  margin: 0;
+}
+
+header ul li {
+  display: inline;
+  color: #ffffff;
+}
+
+header ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 20px;
+}
+
+.navbar-top {
+  font-family: 'Roboto', sans-serif;
+  padding: 2px;
+  height: 27px;
+  background-color: #eeeeee;
+}
+
+.navbar-top ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar-top li {
+  display: inline;
+}
+
+.navbar-top p {
+  padding: 0;
+  margin: 0;
+  display: inline;
+  color: #000000;
+  letter-spacing: 5px;
+}
+
+.logo a {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.logo {
+  font-family: 'Zilla Slab Highlight', cursive;
+}
+
+.search-box {
+  padding: 3px 8px 0 0;
+  float: right;
+}
+
+.search-box input {
+  margin-right: 5px;
+}
+
+.navbar-bottom {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.navbar-bottom ul {
+  display: none;
+  padding: 0;
+  margin: 0 30px 0 0;
+  list-style: none;
+}
+
+.navbar-bottom li {
+  display: inline;
+  padding: 0 20px;
+}
+
+.navbar-bottom li a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.news-feed-container {
+  padding: 30px;
+}
+
+.main-article {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 30px 20px 30px;
+  justify-content: space-around;
+}
+
+.main-text {
+  flex: 1;
+  padding: 0 30px;
+}
+
+.main-text h1 {
+  margin-top: 0px;
+}
+
+.full-article {
+  width: 60%;
+  margin: 0 auto;
+  padding: 30px 0px;
+}
+
+.full-article img {
+  width: 100%;
+  padding: 0 0 30px 0;
+}
+
+.date {
+  color: #cccccc;
+}
+
+.article-preview-list {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.article-preview {
+  padding: 5px;
+  width: 20%;
+}
+
+.article-preview img {
+  width: 100%;
+}
+
+.article-preview {
+  font-size: 16px;
+}
+
+.article-preview a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.article-preview a h3:hover {
+  color: #2272bd;
+}
+
+.preview-date {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+.footer {
+  margin-top: 100px;
+  height: 200px;
+  background-color: #444444;
+}
