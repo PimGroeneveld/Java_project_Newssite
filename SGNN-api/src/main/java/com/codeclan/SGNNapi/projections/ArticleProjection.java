@@ -15,6 +15,7 @@ public interface ArticleProjection {
     LocalDateTime getPublishDate();
     String getImageUrl();
     Region getRegion();
+    int getViewCount();
     List<Journalist> getJournalists();
     List<Category> getCategories();
 }

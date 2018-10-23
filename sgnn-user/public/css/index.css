@@ -177,6 +177,15 @@ header ul li a {
   color: #cccccc;
 }
 
+.viewcount-box {
+  color: #cccccc;
+}
+
+.viewcount-box p, i {
+  font-size: 14px;
+  display: inline;
+}
+
 .footer {
   margin-top: 100px;
   height: 200px;
