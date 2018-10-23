@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+import sun.jvm.hotspot.memory.Generation;
 
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -236,6 +237,20 @@ public class DataLoader implements ApplicationRunner {
         article8.addJournalist(journalist6);
         articleRepository.save(article8);
 
+        //Article 9
+        String headline9 = "Self-driving school bus test halted in US.";
+        String summary9 = "French-based transport firm Transdev has been ordered to stop an unlawful' test of a driverless school bus in Florida by US regulators.";
+        String fullStory9 = "The regulator said the firm had not been authorised to transport schoolchildren in Florida, and said the test was 'irresponsible' and 'inappropriate'. Transdev said it would stop the test a week early." +
+                "The firm said it believed the pilot met testing requirements. But the National Highway Traffic Safety Administration (NHTSA) said the test of the EZ10 Generation II driverless shuttle in the Babcock Ranch community in Florida was outside the scope of what the firm had been authorised to do." +
+                "'Innovation must not come at the risk of public safety,' Heidi King, NHTSA deputy administrator said in a statement on Monday.";
+        LocalDateTime date9 = LocalDateTime.of(2018, Month.OCTOBER, 22, 10, 35, 30);
+        String image9 = "/images/transdev.jpg";
+        Article article9 = new Article( headline9, summary9, fullStory9, date9, image9, region2);
+        articleRepository.save(article9);
+
+        article9.addCategory(techCategory);
+        article9.addJournalist(journalist3);
+        articleRepository.save(article9);
 
     }
 }
