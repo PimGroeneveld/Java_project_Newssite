@@ -1,5 +1,6 @@
 import React from 'react';
 import prettyDate from '../../helpers/Date';
+import ViewCountBox from '../articles/ViewCountBox';
 
 const ArticlePreview = props => {
   return(
@@ -9,6 +10,7 @@ const ArticlePreview = props => {
         <p className = "preview-date"> { prettyDate(props.article.publishDate) }</p>
         <img src = { process.env.PUBLIC_URL + props.article.imageUrl } alt = "preview"></img>
         <p>{ props.article.summary }</p>
+        <ViewCountBox count = { props.article.viewCount } />
       </a>
     </div>
   )
