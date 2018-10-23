@@ -119,6 +119,11 @@ header ul li a {
   justify-content: space-around;
 }
 
+.main-article p {
+  margin-top: 75px;
+  display: block;
+}
+
 .main-text {
   flex: 1;
   padding: 0 30px;

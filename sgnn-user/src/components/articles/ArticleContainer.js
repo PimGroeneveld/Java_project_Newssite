@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Paragraph from './Paragraph';
 import prettyDate from '../../helpers/Date';
+import ViewCountBox from '../articles/ViewCountBox';
 
 class ArticleContainer extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class ArticleContainer extends Component {
       <div className = "full-article">
         <h1>{ this.state.article.headline }</h1>
         <p className = "preview-date">Published { prettyDate(this.state.article.publishDate) }</p>
+        <ViewCountBox count = { this.state.article.viewCount } />
         <img src = { process.env.PUBLIC_URL + this.state.article.imageUrl } alt = "article" ></img>
         <h3>{ this.state.article.summary }</h3>
         { paragraphElements }

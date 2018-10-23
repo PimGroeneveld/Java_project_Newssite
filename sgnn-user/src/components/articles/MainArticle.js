@@ -1,5 +1,6 @@
 import React from 'react';
 import prettyDate from '../../helpers/Date';
+import ViewCountBox from '../articles/ViewCountBox';
 
 const MainArticle = props => {
   if(!props.article) { return null }
@@ -17,6 +18,7 @@ const MainArticle = props => {
       <div className = "main-text">
         <h1>{ props.article.headline }</h1>
         <p className = "preview-date">{ prettyDate(props.article.publishDate) }</p>
+        <ViewCountBox count = { props.article.viewCount } />
         <p>{ props.article.summary }</p>
       </div>
     </div>
