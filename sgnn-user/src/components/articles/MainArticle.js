@@ -3,7 +3,7 @@ import prettyDate from '../../helpers/Date';
 
 const MainArticle = props => {
   if(!props.article) { return null }
-  
+
   return(
     <div className = "main-article">
       <div className = "main-pic">

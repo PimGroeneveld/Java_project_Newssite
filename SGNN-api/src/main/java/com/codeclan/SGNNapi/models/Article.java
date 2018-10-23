@@ -17,6 +17,9 @@ public class Article {
     private Long Id;
 
     @Column
+    private int viewCount;
+
+    @Column
     private String headline;
 
     @Column(columnDefinition = "TEXT")
@@ -74,10 +77,19 @@ public class Article {
         this.region = region;
         this.journalists = new ArrayList<>();
         this.categories = new ArrayList<>();
+        this.viewCount = 0;
     }
 
     public Long getId() {
         return Id;
+    }
+
+    public int getViewCount() {
+        return viewCount;
+    }
+
+    public void setViewCount(int viewCount) {
+        this.viewCount = viewCount;
     }
 
     public void setId(Long id) {

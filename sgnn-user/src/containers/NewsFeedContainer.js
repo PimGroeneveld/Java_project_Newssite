@@ -30,7 +30,7 @@ class NewsFeedContainer extends Component {
   render() {
     return(
       <div className = "news-feed-container">
-        <MainArticle article = { this.state.articles[0] }/>     
+        <MainArticle article = { this.state.articles[0] } />     
         <hr/>
         <ArticleList articles = { this.state.articles.slice(1) }/> 
       </div>
