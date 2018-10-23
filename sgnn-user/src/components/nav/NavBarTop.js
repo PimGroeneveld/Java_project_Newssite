@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
 class NavBarTop extends Component {
+
   handleSubmit(event) {
     event.preventDefault();
     window.location = "/articles/search/" + event.target.query.value;
+  }
+
+  handleNightmode(event){
+    document.body.classList.toggle('nightmode');
   }
 
   render() {
@@ -16,17 +21,20 @@ class NavBarTop extends Component {
               </a>
             </li>
           <li>
+            <li>
+              <button className= "nightmode-button" data-switch-contrast aria-hidden onClick = {this.handleNightmode}>Night mode</button>
+            </li>
             <div className = "search-box">
               <form onSubmit = { this.handleSubmit }>
                 <input name = "query"></input>
                 <button type = "submit">Search</button>
-              </form>  
+              </form>
             </div>
           </li>
         </ul>
-        
+
       </div>
-      
+
     )
   }
 }
