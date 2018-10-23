@@ -2,15 +2,14 @@ body {
   background-color: whitesmoke;
 }
 
-#articles-table {
-  border: 1px solid black;
-}
-
-thead {
+th {
   font-weight: bold;
   font-size: 25px;
   color: white;
-  background-color: red;
+  background-color: #cc0000;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
 }
 
 tbody {
@@ -20,7 +19,25 @@ tbody {
 td {
   border-bottom: 1px solid black;
   border-right: 1px solid black;
+}
 
+#articles-table {
+    border-collapse: collapse;
+    width: 80%;
+    border: 1px solid black;
+}
+
+#articles-table td, #articles-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#articles-table tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#articles-table tr:hover {
+  background-color: #ddd;
 }
 
 .articles-container{
@@ -248,7 +265,7 @@ h3 p{
 }
 
 .article-detail-single {
-  background-color: seashell;
+  background-color: whitesmoke;
 }
 
 

@@ -16,10 +16,10 @@ const ArticleList = (props) => {
       <table id="articles-table">
         <thead>
           <tr>
-            <td className="article-table-element"></td>
-            <td className="article-headline-element">Headline</td>
-            <td className="article-date-element"><a href="/articles/sortByDate">Published Date</a></td>
-            <td className="article-region-element">Region</td>
+            <th className="article-table-element"></th>
+            <th className="article-headline-element">Headline</th>
+            <th className="article-date-element"><a href="/articles/sortByDate">Published Date</a></th>
+            <th className="article-region-element">Region</th>
           </tr>
         </thead>
         <tbody>
