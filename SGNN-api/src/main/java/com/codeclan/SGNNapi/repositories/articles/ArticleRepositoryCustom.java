@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ArticleRepositoryCustom {
 
-    List<Article> sortArticlesByDate();
+//    List<Article> sortArticlesByDate(Integer pageNumber);
     List<Article> findArticlesByCategory(Long categoryId);
     List<Article> findArticlesByJournalist(Long journalistId);
     List<Article> findArticlesByRegion(RegionName region);

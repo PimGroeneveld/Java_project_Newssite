@@ -19,6 +19,14 @@ class App extends Component {
             // Adding the key forces the component to remount when props are updated
             return <NewsFeedContainer key = { props.match.params.id } url = "/articles" />
            } } />
+          <Route exact path = "/articles" render = { props => {
+            // Adding the key forces the component to remount when props are updated
+            return <NewsFeedContainer key = { props.match.params.id } url = {"/articles/pageableList?page=0&size=5&sort=publishDate,desc"} />
+           } } />
+           <Route exact path = "/articles/page/:number" render = { props => {
+             // Adding the key forces the component to remount when props are updated
+             return <NewsFeedContainer key = { props.match.params.number } url = {"/articles/pageableList?page="+props.match.params.number+"&size=5&sort=publishDate,desc"} />
+            } } />
           <Route exact path = "/articles/:id" component = { ArticleContainer } />
           <Route exact path = "/articles/category/:id" render = { props => {
             const url = "/articles/category/" + props.match.params.id;

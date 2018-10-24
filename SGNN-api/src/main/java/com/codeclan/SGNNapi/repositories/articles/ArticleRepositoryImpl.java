@@ -8,6 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -15,30 +18,38 @@ import java.util.List;
 
 public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
 
+    private static final int PAGE_SIZE = 3;
+
     @Autowired
     EntityManager entityManager;
 
-    @Override
-    @Transactional
-    public List<Article> sortArticlesByDate() {
+    @Autowired
+    ArticleRepository articleRepository;
 
-        List<Article> articles = null;
-        Session session = entityManager.unwrap(Session.class);
-
-        try {
-            Criteria criteria = session.createCriteria(Article.class);
-            criteria.addOrder(Order.desc("publishDate"));
-            articles = criteria.list();
-        }
-        catch (HibernateException e) {
-            e.printStackTrace();
-        }
-        finally {
-            session.close();
-        }
-
-        return articles;
-    }
+//    @Override
+//    @Transactional
+//    public Page<Article> sortArticlesByDate(Integer pageNumber) {
+//
+////        List<Article> articles = null;
+////        Session session = entityManager.unwrap(Session.class);
+////
+////        try {
+////            Criteria criteria = session.createCriteria(Article.class);
+////            criteria.addOrder(Order.desc("publishDate"));
+////            articles = criteria.list();
+////        }
+////        catch (HibernateException e) {
+////            e.printStackTrace();
+////        }
+////        finally {
+////            session.close();
+////        }
+////
+////        return articles;
+//
+//        PageRequest request = new PageRequest(pageNumber-1, PAGE_SIZE, Sort.Direction.DESC, "publishDate" );
+//        return articleRepository.findAll(request);
+//    }
 
     @Override
     @Transactional
