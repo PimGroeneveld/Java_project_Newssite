@@ -183,7 +183,7 @@ header ul li a {
   color: #2272bd;
 }
 
-.preview-date {
+.preview-date{
   font-size: 14px;
   color: #cccccc;
   float: left;
@@ -191,6 +191,11 @@ header ul li a {
 
 p.preview-date {
   margin-top: 0;
+  color: #cccccc;
+}
+
+p#preview-date.preview-date{
+  color: #cccccc;
 }
 
 .viewcount-box {
@@ -230,16 +235,8 @@ body {
 /* causes text to change color */
 body, #all-articles p, #all-articles h3, #navbar-links-bottom a {
   background-color: var(--color-page-background);
-  font: 1.1em/1.4 Dosis;
+  /* font: 1.1em/1.4 Dosis; */
   color: var(--color-primary-dark);
-}
-
-#all-articles h3 {
-  font-weight: bold;
-}
-
-#all-articles p {
-  font-family: 'Crimson Text', serif;
 }
 
 /* Affects the news containers */
