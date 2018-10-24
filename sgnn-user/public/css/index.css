@@ -210,6 +210,7 @@ p.preview-date {
 }
 
 /* Nightmode */
+/* sets body backgrounds */
 body {
   --color-page-background: ghostwhite;
   --color-primary-light: ghostwhite;
@@ -233,24 +234,7 @@ body, #all-articles p, #all-articles h3, #navbar-links-bottom a {
   color: var(--color-primary-dark);
 }
 
-main {
-  max-width: 40rem;
-  margin: auto;
-  padding: 1rem;
-}
-
-article {
-  padding: 2rem;
-  background-color: var(--color-primary-light);
-  box-shadow: 6px 6px 0 0 var(--color-primary-dark);
-  * {
-    margin: 0;
-  }
-  * + * {
-    margin-top: 1rem;
-  }
-}
-
+/* Affects the news containers */
 .news-feed-container {
   padding: 2rem;
   background-color: var(--color-primary-light);
@@ -263,6 +247,7 @@ article {
   }
 }
 
+/* Affects the nightmode button */
 [data-switch-contrast] {
   position: absolute;
   margin-top: 30px;
