@@ -53,6 +53,7 @@ class ArticleAddFormContainer extends Component {
     }
 
     const today = new Date();
+    console.log(today);
     var imageUrl = null;
     if (event.formData.image) {
       var splitName = event.formData.image.split("name=")[1];

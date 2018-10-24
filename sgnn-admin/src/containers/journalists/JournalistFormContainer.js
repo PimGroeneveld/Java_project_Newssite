@@ -40,7 +40,7 @@ class JournalistFormContainer extends Component {
           <br/>
           <input type = "email" placeholder = "Email" name = "email" className="journalist-form-text"></input>
           <br/>
-          <input type = "tel" placeholder = "Phone" name = "phone" className="journalist-form-text" pattern="[1-9]{1}[0-9]{9}" title="Please enter 10 digit phone number"></input>
+          <input type = "tel" placeholder = "Phone" name = "phone" className="journalist-form-text" pattern="[0-9]{1}[0-9]{9}" title="Please enter 10 digit phone number"></input>
           <br/>
           <div>
             <button type="submit" className="submit-button">Save</button>

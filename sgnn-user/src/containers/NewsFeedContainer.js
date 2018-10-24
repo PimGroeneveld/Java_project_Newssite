@@ -14,13 +14,14 @@ class NewsFeedContainer extends Component {
       totalPages: 1
     }
   }
+  //set state for nightmode
 
   componentDidMount() {
     console.log(this.url);
     fetch(this.url)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+    
         this.setState({articles: data.content, totalArticlesCount:data.totalElements, activePage: data.pageable.pageNumber+1, totalPages: data.totalPages})
       // if(data._embedded) {
       //   this.setState({ articles: this.sortArticles(data._embedded.articles) })
@@ -46,7 +47,6 @@ class NewsFeedContainer extends Component {
   }
 
   render() {
-    console.log("LENGTH:",this.state.totalArticlesCount," PAGES TOTAL:"+this.state.totalPages);
     return(
       <div className = "news-feed-container">
         <MainArticle article = { this.state.articles[0] } />

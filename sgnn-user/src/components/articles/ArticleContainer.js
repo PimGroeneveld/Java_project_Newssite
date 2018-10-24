@@ -10,6 +10,7 @@ class ArticleContainer extends Component {
     this.state = {
       article: null
     }
+    this.handleBackClick = this.handleBackClick.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +32,10 @@ class ArticleContainer extends Component {
       })
   }
 
+  handleBackClick(event){
+    window.location = "/";
+  }
+
   render() {
     if(!this.state.article) {
       return null;
@@ -49,6 +54,7 @@ class ArticleContainer extends Component {
         <img src = { process.env.PUBLIC_URL + this.state.article.imageUrl } alt = "article" ></img>
         <h3>{ this.state.article.summary }</h3>
         { paragraphElements }
+        <button onClick={this.handleBackClick}>Back</button>
       </div>
     )
   }
