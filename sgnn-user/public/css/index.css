@@ -234,6 +234,14 @@ body, #all-articles p, #all-articles h3, #navbar-links-bottom a {
   color: var(--color-primary-dark);
 }
 
+#all-articles h3 {
+  font-weight: bold;
+}
+
+#all-articles p {
+  font-family: 'Crimson Text', serif;
+}
+
 /* Affects the news containers */
 .news-feed-container {
   padding: 2rem;
