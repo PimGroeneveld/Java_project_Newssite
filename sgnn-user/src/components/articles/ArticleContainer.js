@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Paragraph from './Paragraph';
 import prettyDate from '../../helpers/Date';
+import ViewCountBox from '../articles/ViewCountBox';
 
 class ArticleContainer extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class ArticleContainer extends Component {
     this.state = {
       article: null
     }
+    this.handleBackClick = this.handleBackClick.bind(this);
   }
 
   componentDidMount() {
@@ -17,6 +19,21 @@ class ArticleContainer extends Component {
       .then(data => {
         this.setState({ article: data })
       })
+      .then( () => {
+        fetch("/articles/" + this.id, {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            viewCount: this.state.article.viewCount + 1
+          })
+        })
+      })
+  }
+
+  handleBackClick(event){
+    window.location = "/";
   }
 
   render() {
@@ -33,9 +50,11 @@ class ArticleContainer extends Component {
       <div className = "full-article">
         <h1>{ this.state.article.headline }</h1>
         <p className = "preview-date">Published { prettyDate(this.state.article.publishDate) }</p>
+        <ViewCountBox count = { this.state.article.viewCount } />
         <img src = { process.env.PUBLIC_URL + this.state.article.imageUrl } alt = "article" ></img>
         <h3>{ this.state.article.summary }</h3>
         { paragraphElements }
+        <button onClick={this.handleBackClick}>Back</button>
       </div>
     )
   }

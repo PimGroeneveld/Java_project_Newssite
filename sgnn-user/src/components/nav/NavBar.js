@@ -22,10 +22,10 @@ class NavBar extends Component {
   componentDidMount() {
     fetch("/categories")
       .then(res => res.json())
-      .then(data => { 
+      .then(data => {
         this.setState({
           categories: data._embedded.categories
-        })  
+        })
       })
     fetch("/regions")
       .then(res => res.json())
@@ -40,7 +40,7 @@ class NavBar extends Component {
     const navCategoryLinks = this.state.categories.map((category, index) => {
       return(
         <li key = { index }>
-            <Link to = { "/articles/category/" + category.id }>{ category.name.toLowerCase() }</Link>
+            <Link className = "categories-navbar" to = { "/articles/category/" + category.id }>{ category.name.toLowerCase() }</Link>
         </li>
       )
     })
@@ -49,7 +49,7 @@ class NavBar extends Component {
       <header>
         <ul>
           <li>
-              <Link to = "/" onClick = { this.toggleRegionBar }>UK</Link>
+              <Link className = "categories-navbar" to = "/" onClick = { this.toggleRegionBar }>UK</Link>
           </li>
           { navCategoryLinks }
         </ul>

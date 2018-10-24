@@ -74,7 +74,7 @@ class ArticleDetailContainer extends Component {
         <div className = "edit-article-button-wrapper">
           <a className = "edit-article-button" href={editUrl}>Edit</a>
         </div>
-        
+
         <div className="article-detail-single">
           <div className="article-detail">
             <div className="article-bulletpoints">

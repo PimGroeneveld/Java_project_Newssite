@@ -15,7 +15,7 @@ h1 {
 }
 
 a:hover {
-  color: #004f99;
+  color: lightslategray;
 }
 
 header {
@@ -91,6 +91,12 @@ header ul li a {
   font-weight: 700;
 }
 
+.categories-navbar{
+  font-size: 17px;
+  font-family: 'Roboto';
+  font-weight: bold;
+}
+
 .navbar-bottom ul {
   display: none;
   padding: 0;
@@ -117,6 +123,11 @@ header ul li a {
   flex-wrap: wrap;
   padding: 30px 30px 20px 30px;
   justify-content: space-around;
+}
+
+.main-article p {
+  margin-top: 75px;
+  display: block;
 }
 
 .main-text {
@@ -172,13 +183,86 @@ header ul li a {
   color: #2272bd;
 }
 
-.preview-date {
+.preview-date{
   font-size: 14px;
   color: #cccccc;
+  float: left;
+}
+
+p.preview-date {
+  margin-top: 0;
+  color: #cccccc;
+}
+
+p#preview-date.preview-date{
+  color: #cccccc;
+}
+
+.viewcount-box {
+  color: #cccccc;
+  float: right;
+}
+
+.viewcount-box p, i {
+  font-size: 13px;
+  display: inline;
 }
 
 .footer {
   margin-top: 100px;
   height: 200px;
   background-color: #444444;
+}
+
+/* Nightmode */
+/* sets body backgrounds */
+body {
+  --color-page-background: ghostwhite;
+  --color-primary-light: ghostwhite;
+  --color-primary-dark: rgba(0, 0, 20, .95);
+}
+
+.nightmode {
+  --color-page-background: rgba(0, 0, 20, .95);
+  --color-primary-light: rgba(0, 0, 20, .95);
+  --color-primary-dark: rgb(240,240,240);
+}
+
+* {
+    transition: all .15s ease-in;
+}
+
+/* causes text to change color */
+body, #all-articles p, #all-articles h3, #navbar-links-bottom a {
+  background-color: var(--color-page-background);
+  /* font: 1.1em/1.4 Dosis; */
+  color: var(--color-primary-dark);
+}
+
+/* Affects the news containers */
+.news-feed-container {
+  padding: 2rem;
+  background-color: var(--color-primary-light);
+  box-shadow: 6px 6px 0 0 var(--color-primary-dark);
+  * {
+    margin: 0;
+  }
+  * + * {
+    margin-top: 1rem;
+  }
+}
+
+/* Affects the nightmode button */
+[data-switch-contrast] {
+  position: absolute;
+  margin-top: 30px;
+  right: 1rem;
+  top: 2rem;
+  height: 2rem;
+  width: 4rem;
+
+  background-color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-light);
+  color: var(--color-primary-light);
+  font-weight: bold;
 }

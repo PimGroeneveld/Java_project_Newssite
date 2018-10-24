@@ -20,12 +20,12 @@ class NavBarBottom extends Component {
 
         this.setState({
           regions: regions
-        })  
+        })
       })
   }
 
   formatRegionName(name) {
-    let nameArray = name.toLowerCase().split("_");    
+    let nameArray = name.toLowerCase().split("_");
     nameArray = nameArray.map(word => {
       return (word.charAt(0).toUpperCase() + word.slice(1));
     })
@@ -36,8 +36,8 @@ class NavBarBottom extends Component {
   render() {
     const navRegionLinks = this.state.regions.map(region => {
       return(
-        <li  key = { Math.random() } >
-            <Link 
+        <li key = { Math.random() } >
+            <Link
               to = { "/articles/region/" + region.regionName }>{ this.formatRegionName(region.regionName) }
             </Link>
         </li>
@@ -46,7 +46,7 @@ class NavBarBottom extends Component {
 
     return(
       <div className = "navbar-bottom">
-        <ul>
+        <ul id = "navbar-links-bottom">
           { navRegionLinks }
         </ul>
       </div>
