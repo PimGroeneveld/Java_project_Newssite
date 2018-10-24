@@ -119,7 +119,7 @@ public class DataLoader implements ApplicationRunner {
                 "Scotland's Chief Veterinary Officer Sheila Voas said it could be \"months\" before the investigation yielded definitive results.\n" +
                 "However, she stressed that the discovery of the BSE case showed the industry's detection system was working.\n" +
                 "Some other animals from the herd are also being destroyed as a precaution and tested.";
-        LocalDateTime date2 = LocalDateTime.now();
+        LocalDateTime date2 = LocalDateTime.of(2018, Month.OCTOBER, 23, 10, 10, 30);;
         String image2 = "/images/cows.jpg";
         Article article2 = new Article( headline2, summary2, fullStory2, date2, image2, region1);
         articleRepository.save(article2);
@@ -188,7 +188,7 @@ public class DataLoader implements ApplicationRunner {
                 "\"We can't plan on the basis of what we don't know, so we're very anxious about the outcome,\" he told BBC Radio 4's Today Programme.\n" +
                 "He warned traders could stop using Great Britain to get from Ireland and Northern Ireland to the rest of the EU, and instead sail direct to the continent.\n" +
                 "A no-deal Brexit that created friction on the Northern Ireland border, or delays if extra checks were put in place between Great Britain and Northern Ireland to implement what's become known as a Brexit backstop, could have a significant impact on trade flows, he said.";
-        LocalDateTime date6 = LocalDateTime.now();
+        LocalDateTime date6 = LocalDateTime.of(2018, Month.OCTOBER, 24, 10, 10, 30);;
         String image6 = "/images/brexit.jpg";
         Article article6 = new Article( headline6, summary6, fullStory6, date6, image6, region3);
         articleRepository.save(article6);
