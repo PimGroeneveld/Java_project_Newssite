@@ -21,9 +21,6 @@ class NavBarTop extends Component {
               </a>
             </li>
           <li>
-            <li>
-              <button className= "nightmode-button" data-switch-contrast aria-hidden onClick = {this.handleNightmode}>Night mode</button>
-            </li>
             <div className = "search-box">
               <form onSubmit = { this.handleSubmit }>
                 <input name = "query"></input>

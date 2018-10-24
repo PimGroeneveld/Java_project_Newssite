@@ -266,3 +266,19 @@ body, #all-articles p, #all-articles h3, #navbar-links-bottom a {
   color: var(--color-primary-light);
   font-weight: bold;
 }
+
+.articles-pagination li {
+  display: inline;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 25px;
+
+}
+
+.articles-pagination {
+  text-align: center;
+}
+
+.articles-pagination a {
+  color: red;
+}

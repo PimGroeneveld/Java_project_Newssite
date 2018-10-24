@@ -52,6 +52,9 @@ class NavBar extends Component {
               <Link className = "categories-navbar" to = "/" onClick = { this.toggleRegionBar }>UK</Link>
           </li>
           { navCategoryLinks }
+          <li>
+            <button className= "nightmode-button" data-switch-contrast aria-hidden onClick = {this.handleNightmode}>Night mode</button>
+          </li>
         </ul>
       </header>
     )

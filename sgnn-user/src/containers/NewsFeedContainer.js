@@ -21,8 +21,14 @@ class NewsFeedContainer extends Component {
     fetch(this.url)
     .then(res => res.json())
     .then(data => {
-    
-        this.setState({articles: data.content, totalArticlesCount:data.totalElements, activePage: data.pageable.pageNumber+1, totalPages: data.totalPages})
+        console.log(data);
+        if (data.content) {
+            this.setState({articles: data.content, totalArticlesCount:data.totalElements, activePage: data.pageable.pageNumber+1, totalPages: data.totalPages})
+        }
+        else {
+          this.setState({ articles: this.sortArticles(data._embedded.articles) })
+        }
+
       // if(data._embedded) {
       //   this.setState({ articles: this.sortArticles(data._embedded.articles) })
       // } else {

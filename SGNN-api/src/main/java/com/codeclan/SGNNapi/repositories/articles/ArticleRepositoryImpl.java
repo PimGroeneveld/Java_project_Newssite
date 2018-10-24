@@ -8,9 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -18,7 +16,7 @@ import java.util.List;
 
 public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
 
-    private static final int PAGE_SIZE = 3;
+  //  private static final int PAGE_SIZE = 3;
 
     @Autowired
     EntityManager entityManager;
@@ -30,22 +28,22 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
 //    @Transactional
 //    public Page<Article> sortArticlesByDate(Integer pageNumber) {
 //
-////        List<Article> articles = null;
-////        Session session = entityManager.unwrap(Session.class);
-////
-////        try {
-////            Criteria criteria = session.createCriteria(Article.class);
-////            criteria.addOrder(Order.desc("publishDate"));
-////            articles = criteria.list();
-////        }
-////        catch (HibernateException e) {
-////            e.printStackTrace();
-////        }
-////        finally {
-////            session.close();
-////        }
-////
-////        return articles;
+//        List<Article> articles = null;
+//        Session session = entityManager.unwrap(Session.class);
+//
+//        try {
+//            Criteria criteria = session.createCriteria(Article.class);
+//            criteria.addOrder(Order.desc("publishDate"));
+//            articles = criteria.list();
+//        }
+//        catch (HibernateException e) {
+//            e.printStackTrace();
+//        }
+//        finally {
+//            session.close();
+//        }
+//
+//    return articles;
 //
 //        PageRequest request = new PageRequest(pageNumber-1, PAGE_SIZE, Sort.Direction.DESC, "publishDate" );
 //        return articleRepository.findAll(request);
@@ -62,6 +60,7 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
             Criteria criteria = session.createCriteria(Article.class);
             criteria.createAlias("categories", "category");
             criteria.add(Restrictions.eq("category.id", categoryId));
+
             articles = criteria.list();
         }
         catch (HibernateException e) {
@@ -70,7 +69,6 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom{
         finally {
             session.close();
         }
-
         return articles;
     }
 

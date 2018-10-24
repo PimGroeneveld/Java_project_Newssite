@@ -5,7 +5,6 @@ import com.codeclan.SGNNapi.models.RegionName;
 import com.codeclan.SGNNapi.repositories.articles.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +20,7 @@ public class ArticleController {
     @Autowired
     ArticleRepository articleRepository;
 
-    @GetMapping(path = "/pageableList")
+    @GetMapping(path = "/pageable")
     public Page<Article> getSortedArticles(Pageable pageable){
         return articleRepository.findAll(pageable);
     }
