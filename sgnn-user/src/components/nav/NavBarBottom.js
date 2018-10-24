@@ -46,7 +46,7 @@ class NavBarBottom extends Component {
 
     return(
       <div className = "navbar-bottom">
-        <ul>
+        <ul id = "navbar-links-bottom">
           { navRegionLinks }
         </ul>
       </div>

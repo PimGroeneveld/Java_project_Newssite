@@ -46,9 +46,9 @@ class JournalistEditFormContainer extends Component {
           <br/>
           <input type = "text" defaultValue = {this.state.journalistInfo.cityOfResidence} name = "cityOfResidence" className="journalist-form-text"></input>
           <br/>
-          <input type = "text" defaultValue = {this.state.journalistInfo.email} name = "email" className="journalist-form-text"></input>
+          <input type = "email" defaultValue = {this.state.journalistInfo.email} name = "email" className="journalist-form-text"></input>
           <br/>
-          <input type = "text" defaultValue = {this.state.journalistInfo.phone} name = "phone" className="journalist-form-text"></input>
+          <input type = "tel" defaultValue = {this.state.journalistInfo.phone} name = "phone" className="journalist-form-text" pattern="[0-9]{1}[0-9]{9}" title="Please enter 10 digit phone number"></input>
           <br/>
           <input type="hidden" name="id" value={this.jId}></input>
           <button type = "submit">Save</button>

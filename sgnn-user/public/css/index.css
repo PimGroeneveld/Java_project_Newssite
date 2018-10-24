@@ -213,12 +213,12 @@ p.preview-date {
 body {
   --color-page-background: ghostwhite;
   --color-primary-light: ghostwhite;
-  --color-primary-dark: rgb(10,10,10);
+  --color-primary-dark: rgba(0, 0, 20, .95);
 }
 
 .nightmode {
-  --color-page-background: rgb(10,10,10);
-  --color-primary-light: rgb(10,10,10);
+  --color-page-background: rgba(0, 0, 20, .95);
+  --color-primary-light: rgba(0, 0, 20, .95);
   --color-primary-dark: rgb(240,240,240);
 }
 
@@ -227,7 +227,7 @@ body {
 }
 
 /* causes text to change color */
-body, #all-articles p, #all-articles h3, .navbar-bottom{
+body, #all-articles p, #all-articles h3, #navbar-links-bottom a {
   background-color: var(--color-page-background);
   font: 1.1em/1.4 Dosis;
   color: var(--color-primary-dark);
